@@ -1,0 +1,26 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ListingCard from '../../components/ListingCard.astro';
+import { listings } from '../../data/listings.js';
+---
+<Layout
+  title="Le Camere"
+  description="Magma 102 e Magma 104: due appartamenti indipendenti in pietra lavica a Pedara, alle pendici dell'Etna."
+>
+  <section class="wrap page-hero">
+    <span class="eyebrow">Dove dormire</span>
+    <h1>Le camere</h1>
+    <p>Due appartamenti indipendenti, con ingresso, servizi e corte propri — pensati per la privacy e la libertà del soggiorno. Per ora le prenotazioni passano da Airbnb: ogni card rimanda direttamente all'annuncio corretto.</p>
+  </section>
+
+  <section class="wrap">
+    {listings.map((listing) => <ListingCard listing={listing} />)}
+  </section>
+</Layout>
+
+<style>
+  .page-hero { padding-top: 56px; padding-bottom: 24px; max-width: 720px; }
+  .page-hero .eyebrow { color: var(--ginestra); font-weight: 700; font-size: 14px; }
+  .page-hero h1 { font-size: 42px; margin: 10px 0 14px; }
+  .page-hero p { color: var(--cenere); font-size: 16px; }
+</style>

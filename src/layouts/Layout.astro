@@ -1,0 +1,191 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+}
+
+const {
+  title,
+  description,
+  image = '/images/logo/logo-quadrato.png',
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+const navItems = [
+  { href: '/', label: 'Home' },
+  { href: '/la-struttura', label: 'La Struttura' },
+  { href: '/camere', label: 'Le Camere' },
+  { href: '/territorio', label: 'Vivere il Territorio' },
+  { href: '/blog', label: 'Blog' },
+  { href: '/contatti', label: 'Contatti' },
+];
+---
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="/images/logo/icona.png" />
+  <link rel="canonical" href={canonicalURL} />
+
+  <title>{title} · Magma 610 Bed and More</title>
+  <meta name="description" content={description} />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={`${title} · Magma 610 Bed and More`} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={new URL(image, Astro.site)} />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:locale" content="it_IT" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Schema.org: LodgingBusiness -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "LodgingBusiness",
+    "name": "Magma 610 Bed and More",
+    "description": "B&B a conduzione diretta in pietra lavica a Pedara, sul versante sud dell'Etna. Due appartamenti indipendenti, Magma 102 e Magma 104.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Pedara",
+      "addressRegion": "CT",
+      "postalCode": "95030",
+      "addressCountry": "IT"
+    },
+    "url": "https://www.magma610.it"
+  })} />
+</head>
+<body>
+  <header>
+    <div class="wrap header-inner">
+      <a href="/" aria-label="Magma 610 - Home">
+        <img class="logo-img" src="/images/logo/logo-orizzontale.png" alt="Magma 610 Bed and More" />
+      </a>
+      <nav class="main-nav">
+        {navItems.map((item) => (
+          <a href={item.href} class={Astro.url.pathname === item.href ? 'active' : ''}>{item.label}</a>
+        ))}
+      </nav>
+      <a href="#camere" class="btn-book">Prenota</a>
+    </div>
+  </header>
+
+  <main>
+    <slot />
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <img class="footer-logo" src="/images/logo/logo-verticale.png" alt="Magma 610" />
+          <p>Pedara (CT) — Versante sud dell'Etna, Sicilia</p>
+        </div>
+        <div>
+          <h4>Il B&amp;B</h4>
+          <a href="/la-struttura">La struttura</a>
+          <a href="/camere">Le camere</a>
+          <a href="/territorio">Vivere il territorio</a>
+        </div>
+        <div>
+          <h4>Risorse</h4>
+          <a href="/blog">Blog</a>
+          <a href="/contatti">Contatti</a>
+        </div>
+        <div>
+          <h4>Prenota</h4>
+          <a href="https://www.airbnb.it/rooms/1748467293214784281" target="_blank" rel="noopener">Magma 104 su Airbnb</a>
+          <a href="https://www.airbnb.it/rooms/1748595559509576063" target="_blank" rel="noopener">Magma 102 su Airbnb</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© {new Date().getFullYear()} Magma 610 Bed and More</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+
+<style>
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 252, 247, 0.96);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid rgba(28, 25, 23, 0.08);
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 32px;
+  }
+  .logo-img { height: 46px; width: auto; }
+  nav.main-nav {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    background: var(--bianco);
+    border: 1px solid rgba(28, 25, 23, 0.12);
+    border-radius: var(--r-pill);
+    padding: 6px;
+    box-shadow: var(--shadow-card);
+  }
+  nav.main-nav a {
+    font-size: 14px;
+    color: var(--basalto);
+    padding: 9px 16px;
+    border-radius: var(--r-pill);
+    font-weight: 600;
+    transition: background .15s ease;
+  }
+  nav.main-nav a:hover { background: var(--pomice-light); }
+  nav.main-nav a.active { background: var(--azzurro); color: var(--bianco); }
+  @media (max-width: 900px) {
+    nav.main-nav { display: none; }
+  }
+
+  footer {
+    background: var(--basalto);
+    color: rgba(255, 252, 247, 0.85);
+    padding: 56px 0 28px;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 36px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255, 252, 247, 0.14);
+  }
+  .footer-grid h4 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ginestra);
+    margin-bottom: 16px;
+  }
+  .footer-grid a, .footer-grid p {
+    font-size: 14px;
+    color: rgba(255, 252, 247, 0.75);
+    display: block;
+    margin-bottom: 9px;
+  }
+  .footer-logo { height: 70px; margin-bottom: 14px; }
+  .footer-bottom {
+    padding-top: 22px;
+    font-size: 13px;
+    color: rgba(255, 252, 247, 0.5);
+  }
+  @media (max-width: 820px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; row-gap: 28px; }
+  }
+</style>
