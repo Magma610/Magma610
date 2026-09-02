@@ -1,0 +1,40 @@
+---
+import { LOCALES, LOCALE_LABELS, type Locale } from '../lib/blog';
+
+interface Props {
+  currentLocale: Locale;
+  // Per la pagina indice basta il prefisso lingua; per un articolo,
+  // passa anche lo slug così il link punta alla traduzione corrispondente.
+  slug?: string;
+}
+const { currentLocale, slug } = Astro.props;
+---
+<div class="lang-switch">
+  {LOCALES.map((loc) => (
+    <a
+      href={slug ? `/${loc}/blog/${slug}` : `/${loc}/blog`}
+      class={loc === currentLocale ? 'active' : ''}
+    >
+      {LOCALE_LABELS[loc]}
+    </a>
+  ))}
+</div>
+
+<style>
+  .lang-switch {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 28px;
+  }
+  .lang-switch a {
+    font-size: 13px;
+    font-weight: 600;
+    padding: 7px 14px;
+    border-radius: var(--r-pill);
+    border: 1px solid rgba(28, 25, 23, 0.15);
+    color: var(--cenere);
+  }
+  .lang-switch a:hover { background: var(--pomice-light); color: var(--basalto); }
+  .lang-switch a.active { background: var(--azzurro); border-color: var(--azzurro); color: var(--bianco); }
+</style>

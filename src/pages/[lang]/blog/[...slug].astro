@@ -1,0 +1,26 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import BlogPostView from '../../../views/BlogPostView.astro';
+import { getCollection } from 'astro:content';
+import { parsePostId, isPublished } from '../../../lib/blog';
+import type { Locale } from '../../../i18n/locales';
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection('blog');
+  const langs = ['es', 'en', 'fr', 'de'] as const;
+  return allPosts
+    .filter(isPublished)
+    .filter((p) => langs.includes(parsePostId(p.id).locale as any))
+    .map((post) => {
+      const { locale, slug } = parsePostId(post.id);
+      return { params: { lang: locale, slug }, props: { post } };
+    });
+}
+
+const { lang } = Astro.params as { lang: Exclude<Locale, 'it'> };
+const { post } = Astro.props;
+const slug = parsePostId(post.id).slug;
+---
+<Layout lang={lang} title={post.data.titolo} description={post.data.estratto} image={post.data.immagine} currentPath={`/blog/${slug}`}>
+  <BlogPostView lang={lang} post={post} />
+</Layout>

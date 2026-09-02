@@ -1,0 +1,16 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import BlogIndexView from '../../../views/BlogIndexView.astro';
+import { BLOG_UI } from '../../../lib/blog-ui';
+import type { Locale } from '../../../i18n/locales';
+
+export function getStaticPaths() {
+  return (['es', 'en', 'fr', 'de'] as const).map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params as { lang: Exclude<Locale, 'it'> };
+const ui = BLOG_UI[lang];
+---
+<Layout lang={lang} title={ui.title} description={ui.lead} currentPath="/blog">
+  <BlogIndexView lang={lang} />
+</Layout>

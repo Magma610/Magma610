@@ -1,0 +1,36 @@
+name: Rebuild programmato (auto-pubblicazione articoli)
+
+# Perché serve questo file:
+# Il sito è statico — le pagine vengono generate al momento della build,
+# non "al volo" quando qualcuno le visita. Il filtro che nasconde gli
+# articoli con data futura funziona solo se il sito viene ricostruito
+# DOPO che quella data è arrivata. Questo workflow chiama ogni giorno
+# il Deploy Hook di Vercel, che avvia una nuova build — così un articolo
+# programmato per, es., il 14 settembre compare online da solo quel giorno,
+# senza bisogno di pubblicarlo a mano.
+#
+# COME ATTIVARLO (una tantum):
+# 1. Su Vercel: apri il progetto → Settings → Git → Deploy Hooks
+#    → crea un hook (nome libero, branch "main") → copia l'URL generato
+# 2. Su GitHub: apri questo repository → Settings → Secrets and variables
+#    → Actions → "New repository secret"
+#    → nome: VERCEL_DEPLOY_HOOK_URL, valore: l'URL copiato al passo 1
+# Da quel momento questo workflow gira da solo, ogni giorno.
+
+on:
+  schedule:
+    # Ogni giorno alle 04:00 UTC (06:00 ora italiana in estate, 05:00 in inverno)
+    - cron: '0 4 * * *'
+  workflow_dispatch: # permette anche di lanciarlo a mano da GitHub, per test
+
+jobs:
+  trigger-rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Chiama il Deploy Hook di Vercel
+        run: |
+          if [ -z "${{ secrets.VERCEL_DEPLOY_HOOK_URL }}" ]; then
+            echo "VERCEL_DEPLOY_HOOK_URL non configurato — vedi le istruzioni in cima a questo file."
+            exit 1
+          fi
+          curl -X POST "${{ secrets.VERCEL_DEPLOY_HOOK_URL }}"

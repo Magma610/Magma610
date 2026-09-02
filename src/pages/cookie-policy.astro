@@ -1,0 +1,60 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout
+  lang="it"
+  currentPath="/cookie-policy"
+  title="Cookie Policy"
+  description="Informativa sui cookie utilizzati dal sito di Magma 610 Bed and More."
+>
+  <section class="wrap legal">
+    <span class="eyebrow">Informativa</span>
+    <h1>Cookie Policy</h1>
+    <p class="updated">Ultimo aggiornamento: <em>[data da inserire]</em></p>
+
+    <h2>Cosa sono i cookie</h2>
+    <p>
+      I cookie sono piccoli file di testo che i siti visitati inviano al dispositivo dell'utente,
+      dove vengono memorizzati per essere poi ritrasmessi agli stessi siti alla visita successiva.
+    </p>
+
+    <h2>Cookie tecnici (sempre attivi)</h2>
+    <p>
+      Necessari al funzionamento del sito — ad esempio per ricordare la scelta espressa nel banner
+      cookie. Non richiedono consenso perché indispensabili all'erogazione del servizio.
+    </p>
+    <table>
+      <thead><tr><th>Nome</th><th>Finalità</th><th>Durata</th></tr></thead>
+      <tbody>
+        <tr><td>magma610-cookie-consent</td><td>Memorizza la scelta sui cookie</td><td>12 mesi</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Cookie di analisi (solo previo consenso)</h2>
+    <p>
+      <em>[Da attivare — al momento il sito non utilizza ancora strumenti di analisi. Quando verrà
+      integrato Google Analytics 4, questa sezione andrà aggiornata con il dettaglio dei cookie
+      effettivamente installati (nome, finalità, durata, e link alla privacy policy di Google),
+      e lo script di Analytics dovrà caricarsi solo dopo il consenso espresso in questo banner.]</em>
+    </p>
+
+    <h2>Come gestire i cookie</h2>
+    <p>
+      Puoi modificare la tua scelta in qualsiasi momento cancellando i dati di navigazione del
+      browser per questo sito, oppure tramite le impostazioni del tuo browser, che permettono di
+      eliminare i cookie già installati e bloccarne di nuovi.
+    </p>
+  </section>
+</Layout>
+
+<style>
+  .legal { padding-top: 56px; padding-bottom: 40px; max-width: 720px; }
+  .legal .eyebrow { color: var(--ginestra); font-weight: 700; font-size: 14px; }
+  .legal h1 { font-size: 38px; margin: 10px 0 6px; }
+  .legal .updated { color: var(--cenere); font-size: 13.5px; margin-bottom: 20px; }
+  .legal h2 { font-size: 20px; margin: 30px 0 10px; }
+  .legal p { font-size: 15px; line-height: 1.75; color: var(--basalto); }
+  table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 14px; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid rgba(28,25,23,0.12); }
+  th { color: var(--cenere); font-weight: 700; font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.03em; }
+</style>

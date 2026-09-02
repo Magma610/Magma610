@@ -1,0 +1,21 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import HomeView from '../../views/HomeView.astro';
+import type { Locale } from '../../i18n/locales';
+
+const DESCR: Record<Exclude<Locale, 'it'>, string> = {
+  es: 'B&B de gestión directa en piedra volcánica en Pedara, en la vertiente sur del Etna. Dos apartamentos independientes, Magma 102 y Magma 104.',
+  en: 'A directly run B&B in lava stone at Pedara, on Etna\u2019s southern slope. Two independent apartments, Magma 102 and Magma 104.',
+  fr: "B&B à gestion directe en pierre de lave à Pedara, sur le versant sud de l'Etna. Deux appartements indépendants, Magma 102 et Magma 104.",
+  de: 'Direkt geführtes B&B aus Lavastein in Pedara, an der Südflanke des Ätna. Zwei unabhängige Apartments, Magma 102 und Magma 104.',
+};
+
+export function getStaticPaths() {
+  return (['es', 'en', 'fr', 'de'] as const).map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params as { lang: Exclude<Locale, 'it'> };
+---
+<Layout lang={lang} title="Home" description={DESCR[lang]} currentPath="/">
+  <HomeView lang={lang} />
+</Layout>

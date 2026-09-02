@@ -1,40 +1,22 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { getCollection, render } from 'astro:content';
+import BlogPostView from '../../views/BlogPostView.astro';
+import { getCollection } from 'astro:content';
+import { parsePostId, isPublished } from '../../lib/blog';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog');
-  return posts.map((post) => ({
-    params: { slug: post.id },
-    props: { post },
-  }));
+  const allPosts = await getCollection('blog');
+  return allPosts
+    .filter(isPublished)
+    .filter((p) => parsePostId(p.id).locale === 'it')
+    .map((post) => ({
+      params: { slug: parsePostId(post.id).slug },
+      props: { post },
+    }));
 }
 
 const { post } = Astro.props;
-const { Content } = await render(post);
 ---
-<Layout title={post.data.titolo} description={post.data.estratto} image={post.data.immagine}>
-  <article class="wrap post">
-    <span class="eyebrow">{post.data.tema}</span>
-    <h1>{post.data.titolo}</h1>
-    <span class="post-date">{post.data.data.toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
-    <img src={post.data.immagine} alt={post.data.titolo} class="post-cover" />
-    <div class="post-body">
-      <Content />
-    </div>
-    <a href="/blog" class="btn-outline">← Tutti gli articoli</a>
-  </article>
+<Layout lang="it" title={post.data.titolo} description={post.data.estratto} image={post.data.immagine} currentPath={`/blog/${parsePostId(post.id).slug}`}>
+  <BlogPostView lang="it" post={post} />
 </Layout>
-
-<style>
-  .post { padding-top: 56px; max-width: 760px; }
-  .post .eyebrow { color: var(--ginestra); font-weight: 700; font-size: 14px; }
-  .post h1 { font-size: 40px; margin: 10px 0 8px; }
-  .post-date { color: var(--cenere); font-size: 14px; display: block; margin-bottom: 28px; }
-  .post-cover { width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 20px; box-shadow: var(--shadow-card); margin-bottom: 36px; }
-  .post-body { font-size: 16px; line-height: 1.8; color: var(--basalto); margin-bottom: 40px; }
-  .post-body :global(h2) { font-size: 24px; margin: 32px 0 14px; }
-  .post-body :global(p) { margin-bottom: 16px; }
-  .post-body :global(ul) { margin: 0 0 16px 20px; }
-  .post-body :global(li) { margin-bottom: 8px; }
-</style>

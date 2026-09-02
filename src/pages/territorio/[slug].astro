@@ -1,0 +1,15 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TerritorioDetailView from '../../views/TerritorioDetailView.astro';
+import { TERRITORIO_CONTENT, type TerritorioSlug } from '../../i18n/territorio';
+
+export function getStaticPaths() {
+  return (Object.keys(TERRITORIO_CONTENT) as TerritorioSlug[]).map((slug) => ({ params: { slug } }));
+}
+
+const { slug } = Astro.params as { slug: TerritorioSlug };
+const t = TERRITORIO_CONTENT[slug].it;
+---
+<Layout lang="it" title={t.title} description={t.intro} currentPath={`/territorio/${slug}`}>
+  <TerritorioDetailView lang="it" slug={slug} />
+</Layout>

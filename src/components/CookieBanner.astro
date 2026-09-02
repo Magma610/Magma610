@@ -1,0 +1,105 @@
+---
+// Banner di consenso cookie, conforme alle linee guida del Garante Privacy italiano
+// (consenso preventivo, rifiuto con pari facilità dell'accettazione, granularità).
+// Salva la scelta in localStorage e imposta window.magmaConsent, che gli script
+// di analytics (quando integrati) devono controllare prima di caricarsi.
+import { COOKIE_BANNER } from '../i18n/nav';
+import type { Locale } from '../i18n/locales';
+
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const t = COOKIE_BANNER[lang];
+// Nota: la Cookie Policy resta solo in italiano per ora (vedi README) — link non tradotto.
+---
+<div id="cookie-banner" class="cookie-banner" hidden>
+  <div class="cookie-inner">
+    <p>
+      {t.text} <a href="/cookie-policy">{t.policyLink}</a>.
+    </p>
+    <div class="cookie-actions">
+      <button id="cookie-reject" class="btn-outline">{t.reject}</button>
+      <button id="cookie-accept" class="btn-book">{t.accept}</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const KEY = 'magma610-cookie-consent';
+
+  function applyConsent(consent: 'all' | 'essential') {
+    (window as any).magmaConsent = consent;
+    document.dispatchEvent(new CustomEvent('magma-consent-changed', { detail: consent }));
+  }
+
+  const stored = localStorage.getItem(KEY);
+  const banner = document.getElementById('cookie-banner');
+
+  if (stored === 'all' || stored === 'essential') {
+    applyConsent(stored);
+  } else if (banner) {
+    banner.hidden = false;
+  }
+
+  document.getElementById('cookie-accept')?.addEventListener('click', () => {
+    localStorage.setItem(KEY, 'all');
+    applyConsent('all');
+    if (banner) banner.hidden = true;
+  });
+
+  document.getElementById('cookie-reject')?.addEventListener('click', () => {
+    localStorage.setItem(KEY, 'essential');
+    applyConsent('essential');
+    if (banner) banner.hidden = true;
+  });
+</script>
+
+<style>
+  .cookie-banner {
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    z-index: 300;
+    background: var(--basalto);
+    color: var(--bianco);
+    padding: 20px 24px;
+    box-shadow: 0 -6px 24px rgba(0,0,0,0.25);
+  }
+  .cookie-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .cookie-inner p {
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: rgba(255,252,247,0.85);
+    max-width: 640px;
+    margin: 0;
+  }
+  .cookie-inner a {
+    color: var(--bianco);
+    text-decoration: underline;
+  }
+  .cookie-actions {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+  .cookie-actions .btn-outline {
+    border-color: rgba(255,252,247,0.4);
+    color: var(--bianco);
+    white-space: nowrap;
+  }
+  .cookie-actions .btn-outline:hover {
+    background: rgba(255,252,247,0.12);
+    color: var(--bianco);
+  }
+  @media (max-width: 700px) {
+    .cookie-inner { flex-direction: column; align-items: stretch; }
+    .cookie-actions { justify-content: stretch; }
+    .cookie-actions button { flex: 1; }
+  }
+</style>

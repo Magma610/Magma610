@@ -1,0 +1,27 @@
+---
+// Attivo solo sulle pagine in italiano (lingua di default, senza prefisso).
+// Al primo visitatore: se il browser richiede una lingua supportata diversa
+// dall'italiano, lo reindirizza automaticamente lì. La scelta (fatta dal
+// rilevamento o manualmente tramite le bandiere) viene ricordata, così
+// il controllo non si ripete ad ogni visita.
+---
+<script>
+  const KEY = 'magma610-lang-choice';
+  const SUPPORTED = ['es', 'en', 'fr', 'de']; // 'it' è il default, nessun redirect necessario verso se stesso
+
+  const stored = localStorage.getItem(KEY);
+  if (!stored) {
+    const browserLangs = navigator.languages?.length ? navigator.languages : [navigator.language];
+    const match = browserLangs
+      .map((l) => l.slice(0, 2).toLowerCase())
+      .find((l) => SUPPORTED.includes(l));
+
+    if (match) {
+      localStorage.setItem(KEY, match);
+      const path = window.location.pathname;
+      window.location.replace(`/${match}${path === '/' ? '' : path}`);
+    } else {
+      localStorage.setItem(KEY, 'it');
+    }
+  }
+</script>

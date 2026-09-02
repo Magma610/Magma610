@@ -1,0 +1,48 @@
+---
+import { LOCALES, LOCALE_FLAGS, LOCALE_LABELS, localizePath, type Locale } from '../i18n/locales';
+
+interface Props {
+  currentLocale: Locale;
+  currentPath: string; // path SENZA prefisso lingua, es. "/la-struttura"
+}
+const { currentLocale, currentPath } = Astro.props;
+---
+<div class="flag-switch">
+  <button class="flag-current" aria-haspopup="true" aria-expanded="false">
+    <span>{LOCALE_FLAGS[currentLocale]}</span>
+  </button>
+  <div class="flag-menu">
+    {LOCALES.map((loc) => (
+      <a href={localizePath(loc, currentPath)} class={loc === currentLocale ? 'active' : ''}>
+        <span class="flag">{LOCALE_FLAGS[loc]}</span> {LOCALE_LABELS[loc]}
+      </a>
+    ))}
+  </div>
+</div>
+
+<style>
+  .flag-switch { position: relative; }
+  .flag-current {
+    background: var(--bianco); border: 1px solid rgba(28,25,23,0.12); border-radius: 50%;
+    width: 40px; height: 40px; font-size: 18px; cursor: pointer; box-shadow: var(--shadow-card);
+  }
+  .flag-menu {
+    position: absolute; right: 0; top: calc(100% + 8px);
+    background: var(--bianco); border: 1px solid rgba(28,25,23,0.12); border-radius: 12px;
+    box-shadow: var(--shadow-hover); padding: 6px; min-width: 150px;
+    opacity: 0; visibility: hidden; transform: translateY(-6px);
+    transition: opacity .15s ease, transform .15s ease, visibility .15s;
+    z-index: 200;
+  }
+  .flag-switch:hover .flag-menu,
+  .flag-switch:focus-within .flag-menu {
+    opacity: 1; visibility: visible; transform: translateY(0);
+  }
+  .flag-menu a {
+    display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 8px;
+    font-size: 14px; color: var(--basalto); white-space: nowrap;
+  }
+  .flag-menu a:hover { background: var(--pomice-light); }
+  .flag-menu a.active { font-weight: 700; color: var(--azzurro); }
+  .flag { font-size: 16px; }
+</style>

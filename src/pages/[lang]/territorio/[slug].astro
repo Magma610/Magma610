@@ -1,0 +1,18 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import TerritorioDetailView from '../../../views/TerritorioDetailView.astro';
+import { TERRITORIO_CONTENT, type TerritorioSlug } from '../../../i18n/territorio';
+import type { Locale } from '../../../i18n/locales';
+
+export function getStaticPaths() {
+  const slugs = Object.keys(TERRITORIO_CONTENT) as TerritorioSlug[];
+  const langs = ['es', 'en', 'fr', 'de'] as const;
+  return langs.flatMap((lang) => slugs.map((slug) => ({ params: { lang, slug } })));
+}
+
+const { lang, slug } = Astro.params as { lang: Exclude<Locale, 'it'>; slug: TerritorioSlug };
+const t = TERRITORIO_CONTENT[slug][lang];
+---
+<Layout lang={lang} title={t.title} description={t.intro} currentPath={`/territorio/${slug}`}>
+  <TerritorioDetailView lang={lang} slug={slug} />
+</Layout>

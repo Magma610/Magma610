@@ -1,0 +1,40 @@
+---
+import { TERRITORIO_CONTENT, TERRITORIO_IMAGES, type TerritorioSlug } from '../i18n/territorio';
+import { NAV } from '../i18n/nav';
+import { localizePath, type Locale } from '../i18n/locales';
+
+interface Props {
+  lang: Locale;
+  slug: TerritorioSlug;
+}
+const { lang, slug } = Astro.props;
+const t = TERRITORIO_CONTENT[slug][lang];
+const img = TERRITORIO_IMAGES[slug];
+const nav = NAV[lang];
+---
+<section class="hero-detail">
+  <img src={img} alt={t.title} />
+  <div class="hero-scrim"></div>
+  <div class="hero-text wrap">
+    <a href={localizePath(lang, '/la-struttura')} class="back-link">← {nav.struttura}</a>
+    <h1>{t.title}</h1>
+    <p>{t.intro}</p>
+  </div>
+</section>
+
+<section class="wrap body-text">
+  {t.body.map((paragraph) => <p>{paragraph}</p>)}
+</section>
+
+<style>
+  .hero-detail { position: relative; min-height: 380px; display: flex; align-items: flex-end; overflow: hidden; }
+  .hero-detail img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .hero-scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(28,25,23,0.15), rgba(28,25,23,0.7)); }
+  .hero-text { position: relative; z-index: 2; padding: 48px 32px; color: var(--bianco); }
+  .back-link { font-size: 13.5px; color: rgba(255,252,247,0.85); display: inline-block; margin-bottom: 16px; }
+  .hero-text h1 { font-size: 40px; margin-bottom: 12px; }
+  .hero-text p { font-size: 17px; max-width: 600px; color: rgba(255,252,247,0.92); }
+
+  .body-text { padding-top: 48px; max-width: 720px; }
+  .body-text p { font-size: 16px; line-height: 1.8; color: var(--basalto); margin-bottom: 18px; }
+</style>

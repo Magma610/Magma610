@@ -1,0 +1,139 @@
+---
+import ListingCard from '../components/ListingCard.astro';
+import { listings } from '../data/listings.js';
+import { HOME } from '../i18n/home';
+import { TERRITORIO_SUBMENU, TERRITORIO_SLUGS } from '../i18n/nav';
+import { TERRITORIO_IMAGES } from '../i18n/territorio';
+import { localizePath, type Locale } from '../i18n/locales';
+
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const t = HOME[lang];
+const submenu = TERRITORIO_SUBMENU[lang];
+
+const IMG_HERO = 'https://images.unsplash.com/photo-1585901804315-82561e21b2c2?fm=jpg&q=80&w=1800&auto=format&fit=crop';
+
+const territorioItems = [
+  { key: 'trekking', label: submenu.trekking, slug: TERRITORIO_SLUGS.trekking, img: TERRITORIO_IMAGES['trekking-etna'] },
+  { key: 'cantine', label: submenu.cantine, slug: TERRITORIO_SLUGS.cantine, img: TERRITORIO_IMAGES['cantine-etna'] },
+  { key: 'alcantara', label: submenu.alcantara, slug: TERRITORIO_SLUGS.alcantara, img: TERRITORIO_IMAGES['gole-alcantara'] },
+  { key: 'taormina', label: submenu.taormina, slug: TERRITORIO_SLUGS.taormina, img: TERRITORIO_IMAGES.taormina },
+  { key: 'catania', label: submenu.catania, slug: TERRITORIO_SLUGS.catania, img: TERRITORIO_IMAGES['catania-storica'] },
+];
+---
+<div class="photo-note">Bozza — foto di Magma 102/104 reali dagli annunci Airbnb; territorio con foto stock su licenza libera (Unsplash)</div>
+
+<section class="hero">
+  <img class="hero-bg" src={IMG_HERO} alt="Etna" />
+  <div class="hero-scrim"></div>
+  <div class="hero-content">
+    <div class="wrap">
+      <div class="hero-text">
+        <span class="kicker">{t.heroKicker}</span>
+        <h1>{t.heroTitle[0]}<br />{t.heroTitle[1]}</h1>
+        <p>{t.heroText}</p>
+        <a href={localizePath(lang, '/la-struttura')} class="btn-book hero-cta">{t.apartmentsCta}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" id="appartamenti">
+  <div class="section-head">
+    <span class="eyebrow">{t.apartmentsEyebrow}</span>
+    <h2>{t.apartmentsTitle}</h2>
+    <p>{t.apartmentsText}</p>
+  </div>
+  {listings.map((listing) => <ListingCard listing={listing} lang={lang} />)}
+</section>
+
+<section class="wrap">
+  <div class="section-head">
+    <span class="eyebrow">{t.territorioEyebrow}</span>
+    <h2>{t.territorioTitle}</h2>
+    <p>{t.territorioText}</p>
+  </div>
+  <div class="territorio-grid">
+    {territorioItems.map((item) => (
+      <a class="territorio-item" href={localizePath(lang, `/territorio/${item.slug}`)}>
+        <img src={item.img} alt={item.label} />
+        <div class="territorio-label">{item.label}</div>
+      </a>
+    ))}
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="chat-box">
+    <div class="chat-icon">💬</div>
+    <div>
+      <span class="eyebrow">{t.chatEyebrow}</span>
+      <h2>{t.chatTitle}</h2>
+      <p>{t.chatText}</p>
+      <span class="chat-badge">{t.chatCta}</span>
+    </div>
+  </div>
+</section>
+
+<div class="review-strip">
+  <div class="wrap">
+    <div class="stars">★★★★★</div>
+    <blockquote>{t.reviewQuote}</blockquote>
+    <cite>{t.reviewCite}</cite>
+  </div>
+</div>
+
+<div class="cta-final">
+  <div class="wrap">
+    <h2>{t.ctaTitle}</h2>
+    <p>{t.ctaText}</p>
+    <a href={localizePath(lang, '/la-struttura')} class="btn-book">{t.ctaButton}</a>
+  </div>
+</div>
+
+<style>
+  .photo-note { background: var(--pomice-light); text-align: center; padding: 12px 20px; font-size: 12.5px; color: var(--cenere); }
+
+  .hero { position: relative; overflow: hidden; min-height: 560px; display: flex; align-items: center; }
+  .hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+  .hero-scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(28,25,23,0.30) 0%, rgba(28,25,23,0.35) 50%, rgba(28,25,23,0.55) 100%); z-index: 1; }
+  .hero-content { position: relative; z-index: 2; width: 100%; padding: 64px 0; }
+  .hero-text { max-width: 640px; }
+  .hero-text .kicker { font-size: 14px; color: #E9C77E; font-weight: 600; margin-bottom: 12px; display: block; }
+  .hero-text h1 { font-size: 52px; color: var(--bianco); margin-bottom: 16px; }
+  .hero-text p { font-size: 17px; color: rgba(255,252,247,0.9); max-width: 480px; margin-bottom: 28px; }
+  .hero-cta { display: inline-block; }
+  @media (max-width: 640px) { .hero { min-height: 480px; } .hero-text h1 { font-size: 34px; } }
+
+  .section-head { max-width: 600px; margin-bottom: 44px; }
+  .section-head .eyebrow { color: var(--ginestra); font-weight: 700; font-size: 14px; }
+  .section-head h2 { font-size: 34px; margin-top: 8px; color: var(--basalto); }
+  .section-head p { color: var(--cenere); font-size: 16px; margin-top: 12px; }
+
+  .territorio-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+  .territorio-item { position: relative; border-radius: 16px; overflow: hidden; aspect-ratio: 3/4; background: var(--basalto); box-shadow: var(--shadow-card); display: block; }
+  .territorio-item img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; transition: transform .3s ease; }
+  .territorio-item:hover img { transform: scale(1.06); }
+  .territorio-label { position: absolute; left: 0; right: 0; bottom: 0; padding: 14px; background: linear-gradient(180deg, transparent, rgba(28,25,23,0.9)); color: var(--bianco); font-family: var(--font-display); font-size: 15px; z-index: 2; }
+  @media (max-width: 980px) { .territorio-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 620px) { .territorio-grid { grid-template-columns: repeat(2, 1fr); } }
+
+  .chat-box {
+    display: flex; align-items: center; gap: 28px; background: var(--pomice-light);
+    border-radius: 20px; padding: 36px 40px; flex-wrap: wrap;
+  }
+  .chat-icon { font-size: 40px; background: var(--bianco); width: 76px; height: 76px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: var(--shadow-card); }
+  .chat-box .eyebrow { color: var(--ginestra); font-weight: 700; font-size: 14px; }
+  .chat-box h2 { font-size: 24px; margin: 6px 0 10px; }
+  .chat-box p { color: var(--cenere); font-size: 15px; max-width: 520px; margin-bottom: 14px; }
+  .chat-badge { display: inline-block; font-size: 12.5px; font-weight: 700; color: var(--azzurro); border: 1px solid var(--azzurro); padding: 5px 12px; border-radius: var(--r-pill); }
+
+  .review-strip { background: var(--basalto); color: var(--bianco); padding: 64px 0; }
+  .review-strip blockquote { font-family: var(--font-display); font-size: 26px; font-weight: 400; max-width: 760px; margin: 0 auto 20px; text-align: center; }
+  .review-strip .stars { color: var(--ginestra); font-size: 18px; margin-bottom: 18px; letter-spacing: 3px; text-align: center; }
+  .review-strip cite { font-style: normal; font-size: 14px; color: rgba(255,252,247,0.65); display: block; text-align: center; }
+
+  .cta-final { background: var(--pomice-light); text-align: center; padding: 88px 0; }
+  .cta-final h2 { font-size: 32px; margin-bottom: 14px; max-width: 600px; margin-left: auto; margin-right: auto; font-family: var(--font-display); }
+  .cta-final p { color: var(--cenere); margin-bottom: 28px; }
+</style>

@@ -1,0 +1,16 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ContattiView from '../../views/ContattiView.astro';
+import { CONTATTI } from '../../i18n/contatti';
+import type { Locale } from '../../i18n/locales';
+
+export function getStaticPaths() {
+  return (['es', 'en', 'fr', 'de'] as const).map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params as { lang: Exclude<Locale, 'it'> };
+const t = CONTATTI[lang];
+---
+<Layout lang={lang} title={t.title} description={t.lead} currentPath="/contatti">
+  <ContattiView lang={lang} />
+</Layout>
