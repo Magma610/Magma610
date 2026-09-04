@@ -156,19 +156,58 @@ export const TERRITORIO_CONTENT: Record<TerritorioSlug, Record<Locale, Territori
         },
       ],
     },
-    // TODO: tradurre in ottica SEO prima di andare online, vedi versione IT per il modello
     en: {
-      metaTitle: 'Hiking Mount Etna',
-      metaDescription: "Hiking and excursions on Etna's southern slope: trails for every level, from high-altitude woods to the summit craters.",
-      title: 'Hiking Mount Etna',
-      intro: "Hiking and excursions on Etna's southern slope: trails for every level, from high-altitude woods to the summit craters.",
-      imageAlt: 'Hiking Mount Etna',
+      metaTitle: 'Hiking Mount Etna: Trails and Routes — Magma 610, Pedara',
+      metaDescription: "Hiking Mount Etna from the south side: trails for every level between high-altitude woods and summit craters. Etna excursions near Pedara and Magma 610.",
+      title: 'Hiking Mount Etna: trails on the south side',
+      intro: "Hikes and excursions on Etna's south side: trails for every level, from high-altitude woods to the summit craters.",
+      imageAlt: "Hiking trail on Etna's south side among high-altitude woods",
       body: [
         {
-          heading: 'Hiking Mount Etna',
+          heading: 'Where to hike on Mount Etna',
           paragraphs: [
-            'Etna offers routes for every kind of hiker: from short walks through high-altitude woods to more demanding climbs toward the summit craters. The south side, where Magma 610 is located, is one of the most convenient starting points for a hike.',
-            'We recommend setting off early in the morning, wearing suitable footwear and dressing in layers: the temperature at altitude can be very different from the valley below, even in high summer.',
+            "Etna offers hiking trails for every type of visitor: from short walks through high-altitude woods to more demanding climbs toward the summit craters. The south side, where Magma 610 is located, is one of the most convenient starting points for organising a hike, with marked trails just minutes from our apartments.",
+            "Among the most popular destinations are the trails through the Ragabo Pine Forest, the Silvestri Craters and, for more trained hikers, the routes climbing toward the summit craters, also accessible with the accompaniment of licensed alpine guides.",
+          ],
+        },
+        {
+          heading: 'How to reach the trails from Pedara',
+          paragraphs: [
+            "From Pedara, Etna's south side is accessible within minutes by car: the main trailheads — such as Piano Vetore, Rifugio Sapienza and the Silvestri Craters — are between 20 and 40 minutes from our independent accommodation. It's one of the reasons Pedara is a convenient base for anyone wanting to dedicate several days to hiking without changing accommodation.",
+          ],
+        },
+        {
+          heading: 'Distances and difficulty levels of the viewpoints',
+          paragraphs: [
+            "A quick guide to the hiking destinations mentioned above, with approximate distance from Pedara, travel time and difficulty level — useful for planning your day based on available time and the group's fitness level.",
+          ],
+          table: {
+            headers: ['Destination', 'Distance from Pedara', 'Travel time', 'Difficulty'],
+            rows: [
+              ['Ragabo Pine Forest', '~15 km', '25 min by car + 1h on foot (loop)', 'Easy'],
+              ['Silvestri Craters', '~20 km', '30 min by car + 30 min on foot', 'Easy'],
+              ['Piano Vetore', '~18 km', '25 min by car', 'Easy — starting point for hikes'],
+              ['Rifugio Sapienza', '~25 km', '40 min by car', 'Moderate — base for higher altitudes'],
+              ['Summit craters', '~28 km + climb', '40 min by car + 3-4h on foot, with guide', 'Challenging — requires alpine guide'],
+            ],
+          },
+        },
+        {
+          heading: 'When to go and what to bring',
+          paragraphs: [
+            "We recommend setting off early in the morning, both to avoid the hottest hours in summer and to enjoy the best light along the trail. Hiking boots with good soles, layered clothing and enough water are essential: the temperature at altitude can be very different from the valley below, even in high summer, and wind above 2000 metres can be quite strong.",
+            "In the colder months, some high-altitude trails require crampons and specific equipment: always check weather conditions and, if you have no winter mountain experience, consider a guided hike.",
+          ],
+        },
+        {
+          heading: 'Hiking Mount Etna and your stay at Magma 610',
+          paragraphs: [
+            "Our two independent apartments in Pedara are also designed for anyone organising several days of hiking on Etna: an equipped kitchen for preparing breakfasts and packed lunches, an outdoor courtyard for storing backpacks and gear, and the flexible hours needed by those setting off early in the morning to reach the high-altitude trails.",
+          ],
+          links: [
+            { label: 'Discover the Magma 102 and Magma 104 apartments', path: '/la-struttura' },
+            { label: "Cycling Mount Etna: routes on the south side", path: '/territorio/bici-etna' },
+            { label: 'Etna winery tours', path: '/territorio/cantine-etna' },
           ],
         },
       ],
@@ -279,19 +318,37 @@ export const TERRITORIO_CONTENT: Record<TerritorioSlug, Record<Locale, Territori
         },
       ],
     },
-    // TODO: tradurre in ottica SEO prima di andare online, vedi versione IT per il modello
     en: {
-      metaTitle: 'Etna Wineries',
-      metaDescription: 'Etna winery tours: vineyards on volcanic soil and wine tastings just minutes from Pedara.',
-      title: 'Etna Wineries',
-      intro: 'Etna winery tours: vineyards on volcanic soil and wine tastings just minutes from Pedara.',
-      imageAlt: 'Etna Wineries',
+      metaTitle: 'Etna Winery Tours: Wine Tastings — Magma 610, Pedara',
+      metaDescription: "Etna winery tours near Pedara: wine tasting on volcanic soil, scenic vineyards and guided visits year-round between Trecastagni and Milo, Sicily.",
+      title: 'Etna winery tours: where to taste volcanic wine',
+      intro: 'Etna winery tours: vineyards on volcanic soil and wine tasting just minutes from Pedara.',
+      imageAlt: 'Vineyards on volcanic soil during an Etna winery tour',
       body: [
         {
-          heading: 'Etna Wineries',
+          heading: "Etna's wineries: a unique territory",
           paragraphs: [
-            "The area around Etna is one of Italy's most interesting wine regions: volcanic soil gives local wines a unique character. Many historic wineries organise tours and tastings year-round, often with views of the volcano.",
-            'Booking ahead is recommended, especially during harvest season (September–October), when demand is highest.',
+            "The area around Etna is one of Italy's most interesting wine regions: the mineral-rich volcanic soil gives local wines — especially reds and whites made from Nerello Mascalese and Carricante grapes — a unique character, now recognised internationally.",
+            "Many historic wineries, some with century-old bush-trained vineyards, organise Etna winery tours with an estate visit, an explanation of cultivation on volcanic terraces, and a guided tasting, often with direct views of the volcano.",
+          ],
+        },
+        {
+          heading: 'The wineries closest to Pedara',
+          paragraphs: [
+            "Pedara sits just minutes from some of the best-known wine areas on Etna's south and east sides, between Trecastagni, Milo and Zafferana Etnea. You can organise a half-day tour visiting two or three wineries, or dedicate a full day to a more complete itinerary between tastings and vineyard lunches.",
+          ],
+        },
+        {
+          heading: 'When to book a tasting',
+          paragraphs: [
+            "Booking ahead is recommended, especially during harvest season (September-October), when demand is highest and many wineries host special events tied to the grape harvest. In spring and summer, on the other hand, it's easier to find availability even at short notice.",
+            "Many Etna winery tours also include a walk among the vines, with explanations of bush-trained cultivation on volcanic soil and the different volcanic contrade — each with a slightly different microclimate and wine character, a detail that makes every tasting a distinct experience.",
+          ],
+        },
+        {
+          heading: 'Etna wine and your stay at Magma 610',
+          paragraphs: [
+            "After a day of tastings, our independent apartments in Pedara offer just the right space to unwind: an equipped outdoor courtyard to enjoy the evening, and the convenience of reaching the village centre within minutes by car for dinner, without long drives after a day among the wineries.",
           ],
         },
       ],
@@ -402,19 +459,37 @@ export const TERRITORIO_CONTENT: Record<TerritorioSlug, Record<Locale, Territori
         },
       ],
     },
-    // TODO: tradurre in ottica SEO prima di andare online, vedi versione IT per il modello
     en: {
-      metaTitle: 'Alcantara Gorges',
-      metaDescription: 'The Alcantara Gorges from Pedara: a basalt canyon carved by the Alcantara river, about a 40-minute drive away.',
-      title: 'Alcantara Gorges',
-      intro: 'The Alcantara Gorges from Pedara: a basalt canyon carved by the Alcantara river, about a 40-minute drive away.',
-      imageAlt: 'Alcantara Gorges',
+      metaTitle: 'Alcantara Gorges from Pedara: Full Guide — Magma 610',
+      metaDescription: "The Alcantara Gorges from Pedara: excursion to the basalt-rock canyon carved by the river, 40 minutes by car. Practical tips for planning the visit.",
+      title: 'The Alcantara Gorges: excursion to a basalt canyon',
+      intro: 'The Alcantara Gorges from Pedara: a basalt-rock canyon carved by the Alcantara river, about a 40-minute drive away.',
+      imageAlt: 'Basalt rock walls in the Alcantara Gorges near Pedara',
       body: [
         {
-          heading: 'Alcantara Gorges',
+          heading: 'What are the Alcantara Gorges',
           paragraphs: [
-            'The Alcantara Gorges are a natural canyon formed as lava cooled on contact with the river, which over centuries carved basalt rock walls up to 50 metres high. It’s one of the most visited natural sites in eastern Sicily.',
-            'They’re about a 40-minute drive from Pedara. We recommend footwear with good grip and, if you plan to wade in, a change of clothes: the river water stays cold even in summer.',
+            "The Alcantara Gorges are a natural canyon formed when lava cooled on contact with the Alcantara river, which over the centuries carved basalt rock walls up to 50 metres high. The famous prismatic columns, created by the slow cooling of the lava flow, are one of the most spectacular examples of basalt gorges in Sicily and Europe.",
+            "It's one of the most visited natural sites in eastern Sicily, suited both to those seeking a scenic walk along the equipped walkways and to those wanting a more adventurous excursion wading through the riverbed.",
+          ],
+        },
+        {
+          heading: 'How to get there from Pedara',
+          paragraphs: [
+            "The Alcantara Gorges are about a 40-minute drive from Pedara, along a route that crosses part of Etna's north-east side. It's an easy half-day trip to organise, and can even be combined with a stop in Taormina or nearby villages on the same day.",
+          ],
+        },
+        {
+          heading: 'Tips for the excursion',
+          paragraphs: [
+            "We recommend footwear with good grip and, if you plan to wade in, a change of clothes: the river water stays cold even in summer, thanks to its underground source. In the warmer months, high rubber boots can usually be rented right at the park entrance to safely explore the streambed.",
+            "Besides the main route with lifts and walkways, those with more time can head further upstream, where the canyon narrows and the landscape becomes wilder, for a more rugged and less crowded version of the Alcantara Gorges excursion, suited to those already used to walking on uneven terrain.",
+          ],
+        },
+        {
+          heading: 'Where to stay to visit the Alcantara Gorges',
+          paragraphs: [
+            "Staying in Pedara, in one of our independent apartments, makes it easy to plan the Alcantara Gorges excursion as part of a wider itinerary, taking advantage of the central location relative to the main points of interest on Etna's south and east sides.",
           ],
         },
       ],
@@ -525,19 +600,37 @@ export const TERRITORIO_CONTENT: Record<TerritorioSlug, Record<Locale, Territori
         },
       ],
     },
-    // TODO: tradurre in ottica SEO prima di andare online, vedi versione IT per il modello
     en: {
-      metaTitle: 'Taormina',
-      metaDescription: "Taormina from Pedara: the elegance of the Ionian coast, between the Greek Theatre and Isola Bella's coves, about a 30-minute drive away.",
-      title: 'Taormina',
-      intro: "Taormina from Pedara: the elegance of the Ionian coast, between the Greek Theatre and Isola Bella's coves, about a 30-minute drive away.",
-      imageAlt: 'Taormina',
+      metaTitle: 'Taormina from Pedara: What to See and Do — Magma 610',
+      metaDescription: "Taormina from Pedara in half an hour by car: what to see between the Greek Theatre and Isola Bella, how to get there from Etna and when to go.",
+      title: 'Taormina: what to see and how to get there from Etna',
+      intro: "Taormina from Pedara: the elegance of the Ionian coast, between the Greek Theatre and the coves of Isola Bella, about a 30-minute drive away.",
+      imageAlt: 'View of Taormina and the Ionian coast from the Greek Theatre',
       body: [
         {
-          heading: 'Taormina',
+          heading: 'What to see in Taormina',
           paragraphs: [
-            "Taormina is one of Sicily's most famous destinations: the Greek Theatre, the seafront old town and Isola Bella's coves make it a near-essential stop for anyone staying on Etna's southern slope.",
-            "It's about a 30-minute drive from Pedara. In summer months we recommend arriving early to find parking more easily and avoid the midday heat.",
+            "Taormina is one of Sicily's most famous destinations: the Greek Theatre, with its breathtaking view of Etna and the sea, is probably the island's most photographed monument. The old town, with Corso Umberto, Piazza IX Aprile and its views over the gulf, can be explored on foot in a few hours, among shops, panoramic terraces and historic buildings.",
+            "Nearby, the coves of Isola Bella — a small island connected to the mainland by a sandbar — are one of the symbolic images of Sicily's Ionian coast and an almost obligatory stop for anyone visiting Taormina.",
+          ],
+        },
+        {
+          heading: 'How to reach Taormina from Etna',
+          paragraphs: [
+            "From Pedara, on Etna's south side, Taormina is about a 30-minute drive away, along a route that descends toward the Ionian coast through some of the area's most striking scenery. You can also plan the visit using public transport, though a car remains the most convenient way to manage timing and stops along the way.",
+          ],
+        },
+        {
+          heading: 'When to visit Taormina',
+          paragraphs: [
+            "In summer we recommend arriving early to find parking more easily and avoid the midday heat, especially if you also plan to visit Isola Bella. In spring and autumn, Taormina offers milder weather and fewer crowds, ideal for taking your time at the old town and the Greek Theatre.",
+            "If your day also includes a beach stop, the beaches of Mazzarò and Isola Bella are reachable by cable car directly from the centre of Taormina, a convenient alternative for those who don't want to look for parking twice in one day.",
+          ],
+        },
+        {
+          heading: 'Taormina and your stay at Magma 610',
+          paragraphs: [
+            "Choosing Magma 610 as your base means you can dedicate a full day to Taormina without giving up the peace of an independent accommodation far from the traffic and prices of the coastal centre, while still keeping easy access to both the sea and Etna's hiking trails.",
           ],
         },
       ],
@@ -648,19 +741,37 @@ export const TERRITORIO_CONTENT: Record<TerritorioSlug, Record<Locale, Territori
         },
       ],
     },
-    // TODO: tradurre in ottica SEO prima di andare online, vedi versione IT per il modello
     en: {
-      metaTitle: 'Historic Catania',
-      metaDescription: "Historic Catania's city centre: Sicilian baroque, historic markets and the harbour, just minutes from Magma 610.",
-      title: 'Historic Catania',
-      intro: "Historic Catania's city centre: Sicilian baroque, historic markets and the harbour, just minutes from Magma 610.",
-      imageAlt: 'Historic Catania',
+      metaTitle: 'Catania Historic Centre: What to See — Magma 610, Pedara',
+      metaDescription: "What to see in Catania's historic centre: Piazza del Duomo, the Pescheria fish market and baroque architecture, just 20 minutes from Pedara.",
+      title: 'Catania: the baroque old town just steps from Magma 610',
+      intro: "Catania's historic centre: Sicilian baroque, historic markets and the harbour, just minutes from Magma 610.",
+      imageAlt: "Piazza del Duomo in Catania's baroque historic centre",
       body: [
         {
-          heading: 'Historic Catania',
+          heading: "What to see in Catania's historic centre",
           paragraphs: [
-            "Catania, a UNESCO World Heritage site for its baroque centre, is the closest city to Magma 610: Piazza del Duomo, Via Etnea and the historic Pescheria fish market tell the story of a lively city, built — quite literally — from Etna's lava stone.",
-            'The city centre is about a 20–25 minute drive from Pedara. We recommend visiting early in the morning to catch the Pescheria market at its liveliest.',
+            "Catania, a UNESCO World Heritage site for its baroque centre, is the closest city to Magma 610: Piazza del Duomo with the Elephant Fountain, via Etnea running through the heart of the city, and the historic Pescheria fish market tell the story of a lively city built — quite literally — from Etna's lava stone.",
+            "Other must-see stops include the Teatro Massimo Bellini, the remains of the Roman amphitheatre tucked among the city's buildings, and Castello Ursino, which today houses the civic museum overlooking Piazza Federico di Svevia.",
+          ],
+        },
+        {
+          heading: 'Baroque Catania: architecture and history',
+          paragraphs: [
+            "After the devastating 1693 earthquake, Catania was rebuilt in late-baroque style, using the same black lava stone that still characterises the historic centre's facades today, contrasting with the white limestone used for decorations and details. This style, shared with other towns in the Val di Noto, is now recognised as a UNESCO World Heritage Site.",
+            "Walking through the centre, you can easily spot the typical elements of Catanese baroque: balconies with carved corbels, monumental portals, and the characteristic combination of black lava and white limestone that gives the city an instantly recognisable architectural character, distinct from any other Sicilian historic centre.",
+          ],
+        },
+        {
+          heading: 'How to get there and when to visit',
+          paragraphs: [
+            "Catania's centre is about a 20-25 minute drive from Pedara. We recommend an early morning visit, both to experience the Pescheria market at its busiest and to enjoy the main squares of the historic centre before the tour groups arrive.",
+          ],
+        },
+        {
+          heading: 'Catania and your stay at Magma 610',
+          paragraphs: [
+            "Magma 610's proximity to Catania lets you alternate days in the city with hikes on Etna or trips to the coast, without having to choose between sea, volcano and culture: in about twenty minutes you go from the quiet of Pedara to the city's baroque centre.",
           ],
         },
       ],
@@ -771,20 +882,37 @@ export const TERRITORIO_CONTENT: Record<TerritorioSlug, Record<Locale, Territori
         },
       ],
     },
-    // TODO: tradurre in ottica SEO prima di andare online, vedi versione IT per il modello
     en: {
-      metaTitle: 'Cycling Mount Etna',
-      metaDescription: "Cycling routes on Etna's southern slope, through vineyards and high-altitude woods — cycle touring for every level, just minutes from Pedara.",
-      title: 'Cycling Mount Etna',
-      intro: "Cycling routes on Etna's southern slope, through vineyards and high-altitude woods — cycle touring for every level, just minutes from Pedara.",
-      imageAlt: 'Cycling Mount Etna',
+      metaTitle: 'Cycling Routes on Mount Etna, South Side — Magma 610',
+      metaDescription: "Cycling routes on Etna's southern slope, through vineyards and high-altitude woods: cycle touring for every level and bike tours, near Pedara.",
+      title: 'Cycling Mount Etna: routes on the south side',
+      intro: "Cycling routes on Etna's southern slope, through vineyards and high-altitude woods — cycle touring for every level, just steps from Pedara.",
+      imageAlt: "Cyclist on a bike route on Etna's south side among the vineyards",
       body: [
         {
-          heading: 'Cycling Mount Etna',
+          heading: "Cycling routes on Etna's south side",
           paragraphs: [
-            "Etna's southern slope offers cycling routes for every level: from easy rides through vineyards and dry-stone walls to more demanding climbs toward the high-altitude woods. It's one of Sicily's most loved spots for cycle touring, thanks to views over the volcano and the Ionian coast.",
-            "For those who'd rather skip the steeper climbs, several rental points in the area offer e-bikes — a convenient way to enjoy the scenery without giving up a challenging ascent or two.",
-            'We recommend setting off during the cooler hours of the day, especially in summer, and always checking weather conditions at altitude before tackling the longer routes.',
+            "Etna's south side offers cycling routes for every level: from relaxed rides among vineyards and dry-stone walls to more demanding climbs toward the high-altitude woods, up to the Silvestri Craters. It's one of Sicily's most loved areas among cycle-touring enthusiasts, thanks to the views of the volcano and the Ionian coast that open up along the climb.",
+            "Among the best-known routes are those linking the Etna foothill villages — Pedara, Trecastagni, Nicolosi — along old mule tracks and secondary roads through the vineyards, ideal for those seeking a less demanding Etna Sicily bike tour that's still rich in scenery.",
+          ],
+        },
+        {
+          heading: 'Routes for every level and e-bikes',
+          paragraphs: [
+            "For those who'd rather avoid the steeper climbs, several rental points in the area offer e-bikes, a convenient way to enjoy the scenery without giving up a challenging climb or two. You can rent both mountain bikes and gravel bikes, depending on the type of route chosen.",
+          ],
+        },
+        {
+          heading: 'When to go and what to know',
+          paragraphs: [
+            "We recommend setting off during the cooler hours of the day, especially in summer, and always checking weather conditions at altitude before tackling the longer routes: above 1500 metres, temperatures can drop quickly even with summer weather in the valley.",
+            "Many of Etna's bike routes cross unpaved roads and trails shared with hikers: a helmet and clearly visible lights, even during the day, are a useful precaution on some of the less-travelled stretches.",
+          ],
+        },
+        {
+          heading: 'Cycling on Etna and your stay at Magma 610',
+          paragraphs: [
+            "Our apartments in Pedara are a good starting point for anyone organising a few days of cycling on Etna: outdoor space for storing bikes, a convenient location relative to the main route starting points, and the flexibility of an independent accommodation for those with training-related time needs.",
           ],
         },
       ],
@@ -899,19 +1027,38 @@ export const TERRITORIO_CONTENT: Record<TerritorioSlug, Record<Locale, Territori
         },
       ],
     },
-    // TODO: tradurre in ottica SEO prima di andare online, vedi versione IT per il modello
     en: {
-      metaTitle: 'Near Centro Cuore Morgagni',
-      metaDescription: "Comfortable, quiet accommodation just minutes from Pedara's Centro Cuore Morgagni — ideal for a medical visit or to stay close to a family member.",
-      title: 'Near Centro Cuore Morgagni',
+      metaTitle: 'Accommodation Near Centro Cuore Morgagni — Magma 610',
+      metaDescription: "Accommodation near Pedara's Centro Cuore Morgagni: 5 minutes by car, 15 on foot. Two independent apartments for short or extended hospital stays.",
+      title: "Where to stay near Pedara's Centro Cuore Morgagni",
       intro: "Comfortable, quiet accommodation just minutes from Pedara's Centro Cuore Morgagni — ideal for a medical visit or to stay close to a family member.",
-      imageAlt: 'Near Centro Cuore Morgagni',
+      imageAlt: "Pedara's Centro Cuore Morgagni",
       body: [
         {
-          heading: 'Near Centro Cuore Morgagni',
+          heading: 'Distance from Centro Cuore Morgagni',
           paragraphs: [
-            "Magma 610 is just a 5-minute drive and about a 15-minute walk from Centro Cuore Morgagni. It's a practical option for anyone organising a medical appointment, an admission or a hospital stay, who needs nearby accommodation without having to navigate an unfamiliar town.",
-            'The two independent apartments, fully equipped for comfort, let you rest quietly between appointments, with the flexibility of a short or extended stay depending on your needs.',
+            "Magma 610 is just a 5-minute drive and about a 15-minute walk from Centro Cuore Morgagni. It's a practical solution for anyone organising a medical visit, an admission or a hospital stay who needs accommodation near Centro Cuore Morgagni, without having to navigate an unfamiliar town.",
+          ],
+        },
+        {
+          heading: 'Two independent apartments',
+          paragraphs: [
+            'The two apartments, Magma 102 and Magma 104, are independent and fully equipped for comfort: kitchen, linens included and Wi-Fi connection, so you can organise your day — between one appointment and the next — without extra worries.',
+            "Having your own kitchen is often an important detail for anyone staying several days near Centro Cuore Morgagni: it means being able to prepare a light meal before a visit, or simply not having to eat out every day during a family member's extended hospital stay.",
+          ],
+        },
+        {
+          heading: 'Flexibility for short or extended stays',
+          paragraphs: [
+            "We understand that anyone looking for accommodation near Centro Cuore Morgagni often has different needs from a typical holiday stay: that's why we offer the flexibility of a short stay, even a single night, or an extended one, based on the timing of visits or a hospital admission.",
+            "Check-in and check-out can be arranged with flexible timing when circumstances require it: medical visits or hospital admission schedules often don't match standard arrival and departure times, and we try to accommodate these needs whenever possible.",
+          ],
+        },
+        {
+          heading: 'Practical comforts for those arriving from out of town',
+          paragraphs: [
+            "Convenient parking, quiet surroundings and the option of reaching Centro Cuore Morgagni on foot make Magma 610 a practical base for those arriving from out of town who don't know the area. If needed, we're always available with directions to pharmacies, supermarkets or other nearby services.",
+            "Pedara is a quiet village, without the traffic and bustle of a larger city — an aspect that many of our guests, especially those already dealing with the stress of a medical visit or hospital admission, find particularly welcome compared to accommodation in the city centre.",
           ],
         },
       ],
