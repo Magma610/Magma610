@@ -1,0 +1,87 @@
+---
+import type { FaqCategory } from '../i18n/faq';
+
+interface Props {
+  categories: FaqCategory[];
+  columns?: 1 | 2;
+}
+const { categories, columns = 1 } = Astro.props;
+---
+<div class="faq-categories">
+  {categories.map((cat) => (
+    <div class="faq-category">
+      {cat.title && <h2>{cat.title}</h2>}
+      <div class:list={['faq-list', columns === 2 && 'faq-list-2col']}>
+        {cat.items.map((item) => (
+          <details class="faq-item">
+            <summary>
+              <span>{item.question}</span>
+              <span class="faq-toggle" aria-hidden="true">+</span>
+            </summary>
+            <p>{item.answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  ))}
+</div>
+
+<style>
+  .faq-category { margin-bottom: 40px; }
+  .faq-category:last-child { margin-bottom: 0; }
+  .faq-category h2 { font-size: 24px; margin-bottom: 16px; color: var(--basalto); }
+
+  .faq-list { display: flex; flex-direction: column; gap: 10px; }
+  .faq-list-2col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(3, auto);
+    gap: 10px 24px;
+  }
+  @media (max-width: 700px) {
+    .faq-list-2col { grid-auto-flow: row; grid-template-columns: 1fr; grid-template-rows: none; }
+  }
+  .faq-item {
+    background: var(--bianco);
+    border: 1px solid rgba(28, 25, 23, 0.10);
+    border-radius: var(--r-card);
+    padding: 0 20px;
+    transition: box-shadow .15s ease;
+  }
+  .faq-item[open] { box-shadow: var(--shadow-card); }
+
+  .faq-item summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px 0;
+    cursor: pointer;
+    list-style: none;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 16.5px;
+    color: var(--basalto);
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+
+  .faq-toggle {
+    flex-shrink: 0;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1;
+    color: var(--ginestra);
+    transition: transform .2s ease;
+  }
+  .faq-item[open] .faq-toggle { transform: rotate(45deg); }
+
+  .faq-item p {
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--cenere);
+    padding: 0 0 18px;
+    margin: 0;
+  }
+</style>

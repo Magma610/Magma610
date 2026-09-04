@@ -1,7 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import TerritorioDetailView from '../../views/TerritorioDetailView.astro';
-import { TERRITORIO_CONTENT, type TerritorioSlug } from '../../i18n/territorio';
+import { TERRITORIO_CONTENT, TERRITORIO_IMAGES, TERRITORIO_GEO, type TerritorioSlug } from '../../i18n/territorio';
+import { NAV, TERRITORIO_SUBMENU, TERRITORIO_KEY_BY_SLUG } from '../../i18n/nav';
 
 export function getStaticPaths() {
   return (Object.keys(TERRITORIO_CONTENT) as TerritorioSlug[]).map((slug) => ({ params: { slug } }));
@@ -9,7 +10,21 @@ export function getStaticPaths() {
 
 const { slug } = Astro.params as { slug: TerritorioSlug };
 const t = TERRITORIO_CONTENT[slug].it;
+const submenuLabel = TERRITORIO_SUBMENU.it[TERRITORIO_KEY_BY_SLUG[slug]];
 ---
-<Layout lang="it" title={t.title} description={t.intro} currentPath={`/territorio/${slug}`}>
+<Layout
+  lang="it"
+  title={t.metaTitle}
+  description={t.metaDescription}
+  currentPath={`/territorio/${slug}`}
+  schema={{
+    kind: 'touristAttraction',
+    name: t.title,
+    description: t.metaDescription,
+    image: TERRITORIO_IMAGES[slug],
+    geo: TERRITORIO_GEO[slug],
+  }}
+  breadcrumbItems={[{ label: NAV.it.territorio }, { label: submenuLabel }]}
+>
   <TerritorioDetailView lang="it" slug={slug} />
 </Layout>

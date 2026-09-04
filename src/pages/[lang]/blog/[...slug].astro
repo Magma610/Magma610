@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Layout.astro';
 import BlogPostView from '../../../views/BlogPostView.astro';
 import { getCollection } from 'astro:content';
 import { parsePostId, isPublished } from '../../../lib/blog';
+import { NAV } from '../../../i18n/nav';
 import type { Locale } from '../../../i18n/locales';
 
 export async function getStaticPaths() {
@@ -21,6 +22,20 @@ const { lang } = Astro.params as { lang: Exclude<Locale, 'it'> };
 const { post } = Astro.props;
 const slug = parsePostId(post.id).slug;
 ---
-<Layout lang={lang} title={post.data.titolo} description={post.data.estratto} image={post.data.immagine} currentPath={`/blog/${slug}`}>
+<Layout
+  lang={lang}
+  title={post.data.titolo}
+  description={post.data.estratto}
+  image={post.data.immagine}
+  currentPath={`/blog/${slug}`}
+  schema={{
+    kind: 'blogPosting',
+    headline: post.data.titolo,
+    description: post.data.estratto,
+    image: post.data.immagine,
+    datePublished: post.data.data.toISOString(),
+  }}
+  breadcrumbItems={[{ label: NAV[lang].blog, path: '/blog' }, { label: post.data.titolo }]}
+>
   <BlogPostView lang={lang} post={post} />
 </Layout>

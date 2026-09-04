@@ -3,11 +3,18 @@ import Layout from '../../layouts/Layout.astro';
 import HomeView from '../../views/HomeView.astro';
 import type { Locale } from '../../i18n/locales';
 
+const TITLE: Record<Exclude<Locale, 'it'>, string> = {
+  es: 'B&B en Pedara',
+  en: 'B&B in Pedara',
+  fr: 'B&B à Pedara',
+  de: 'B&B in Pedara',
+};
+
 const DESCR: Record<Exclude<Locale, 'it'>, string> = {
-  es: 'B&B de gestión directa en piedra volcánica en Pedara, en la vertiente sur del Etna. Dos apartamentos independientes, Magma 102 y Magma 104.',
-  en: 'A directly run B&B in lava stone at Pedara, on Etna\u2019s southern slope. Two independent apartments, Magma 102 and Magma 104.',
-  fr: "B&B à gestion directe en pierre de lave à Pedara, sur le versant sud de l'Etna. Deux appartements indépendants, Magma 102 et Magma 104.",
-  de: 'Direkt geführtes B&B aus Lavastein in Pedara, an der Südflanke des Ätna. Zwei unabhängige Apartments, Magma 102 und Magma 104.',
+  es: 'B&B en Pedara, en la vertiente sur del Etna: casa de vacaciones en piedra volcánica con dos apartamentos independientes, Magma 102 y Magma 104.',
+  en: 'B&B in Pedara, on Etna\u2019s southern slope: a holiday home in lava stone with two independent apartments, Magma 102 and Magma 104.',
+  fr: "B&B à Pedara, sur le versant sud de l'Etna : maison de vacances en pierre de lave avec deux appartements indépendants, Magma 102 et Magma 104.",
+  de: 'B&B in Pedara, an der Südflanke des Ätna: Ferienhaus aus Lavastein mit zwei unabhängigen Apartments, Magma 102 und Magma 104.',
 };
 
 export function getStaticPaths() {
@@ -16,6 +23,6 @@ export function getStaticPaths() {
 
 const { lang } = Astro.params as { lang: Exclude<Locale, 'it'> };
 ---
-<Layout lang={lang} title="Home" description={DESCR[lang]} currentPath="/">
+<Layout lang={lang} title={TITLE[lang]} description={DESCR[lang]} currentPath="/" schema={{ kind: 'lodging' }}>
   <HomeView lang={lang} />
 </Layout>

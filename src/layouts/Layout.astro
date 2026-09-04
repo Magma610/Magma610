@@ -1,14 +1,26 @@
 ---
 import '../styles/global.css';
 import CookieBanner from '../components/CookieBanner.astro';
+import ChatWidget from '../components/ChatWidget.astro';
 import MainNav from '../components/MainNav.astro';
 import LanguageFlagSwitcher from '../components/LanguageFlagSwitcher.astro';
 import LangAutoDetect from '../components/LangAutoDetect.astro';
+import Breadcrumb, { type BreadcrumbItem } from '../components/Breadcrumb.astro';
 import { NAV, FOOTER } from '../i18n/nav';
 import { LOCALES, DEFAULT_LOCALE, localizePath, splitLocaleFromPath, type Locale } from '../i18n/locales';
 import { listings } from '../data/listings.js';
+import { getCamereImage } from '../lib/camere-images';
 
 const firstApartmentSlug = listings[0].slug; // "magma-104" — il bottone Prenota in header punta lì
+
+// Schema.org da emettere in pagina: il tipo dipende dalla natura della pagina.
+// "lodging" (LodgingBusiness) resta riservato a Home, La Struttura e Contatti —
+// le altre pagine passano un tipo più specifico, o "none" se non pertinente.
+export type SchemaConfig =
+  | { kind: 'lodging' }
+  | { kind: 'touristAttraction'; name: string; description: string; image: string; geo?: { latitude: number; longitude: number } }
+  | { kind: 'blogPosting'; headline: string; description: string; image: string; datePublished: string; dateModified?: string }
+  | { kind: 'none' };
 
 interface Props {
   lang: Locale;
@@ -16,6 +28,8 @@ interface Props {
   description: string;
   image?: string;
   currentPath?: string; // path senza prefisso lingua; se omesso, derivato dall'URL corrente
+  schema?: SchemaConfig;
+  breadcrumbItems?: BreadcrumbItem[]; // se omesso, nessun breadcrumb (es. home)
 }
 
 const {
@@ -24,6 +38,8 @@ const {
   description,
   image = '/images/logo/logo-quadrato.png',
   currentPath,
+  schema = { kind: 'none' },
+  breadcrumbItems,
 } = Astro.props;
 
 const path = currentPath ?? splitLocaleFromPath(Astro.url.pathname).path;
@@ -31,7 +47,78 @@ const canonicalURL = new URL(localizePath(lang, path), Astro.site);
 const nav = NAV[lang];
 const footer = FOOTER[lang];
 
+// Il title passato da ogni pagina è già completo (es. le pagine territorio/FAQ includono
+// già "— Magma 610, Pedara"): appendiamo il brand solo se non è già presente, per evitare
+// title tag duplicati e troppo lunghi in SERP.
+const fullTitle = title.toLowerCase().includes('magma 610') ? title : `${title} | Magma 610`;
+
 const OG_LOCALE_MAP: Record<Locale, string> = { it: 'it_IT', es: 'es_ES', en: 'en_GB', fr: 'fr_FR', de: 'de_DE' };
+
+function buildJsonLd(): Record<string, unknown> | null {
+  switch (schema.kind) {
+    case 'lodging':
+      return {
+        '@context': 'https://schema.org',
+        '@type': 'LodgingBusiness',
+        name: 'Magma 610 Bed and More',
+        description: "B&B a conduzione diretta in pietra lavica a Pedara, sul versante sud dell'Etna. Due appartamenti indipendenti, Magma 102 e Magma 104.",
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: 'Via Faro Filadelfo, 102, 104',
+          addressLocality: 'Pedara',
+          addressRegion: 'CT',
+          postalCode: '95030',
+          addressCountry: 'IT',
+        },
+        geo: {
+          '@type': 'GeoCoordinates',
+          latitude: 37.62069742102214,
+          longitude: 15.060494674924827,
+        },
+        telephone: '+39 380 182 4545',
+        url: 'https://www.magma610.it',
+        image: new URL(getCamereImage('magma-104/06.jpg').src, Astro.site).toString(),
+        priceRange: '€€',
+        sameAs: [
+          'https://www.airbnb.it/rooms/1748467293214784281',
+          'https://www.airbnb.it/rooms/1748595559509576063',
+        ],
+      };
+    case 'touristAttraction':
+      return {
+        '@context': 'https://schema.org',
+        '@type': 'TouristAttraction',
+        name: schema.name,
+        description: schema.description,
+        image: new URL(schema.image, Astro.site).toString(),
+        url: canonicalURL.toString(),
+        ...(schema.geo
+          ? { geo: { '@type': 'GeoCoordinates', latitude: schema.geo.latitude, longitude: schema.geo.longitude } }
+          : {}),
+      };
+    case 'blogPosting':
+      return {
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
+        headline: schema.headline,
+        description: schema.description,
+        image: new URL(schema.image, Astro.site).toString(),
+        datePublished: schema.datePublished,
+        ...(schema.dateModified ? { dateModified: schema.dateModified } : {}),
+        author: { '@type': 'Organization', name: 'Magma 610 Bed and More' },
+        publisher: {
+          '@type': 'Organization',
+          name: 'Magma 610 Bed and More',
+          logo: { '@type': 'ImageObject', url: new URL('/images/logo/logo-quadrato.png', Astro.site).toString() },
+        },
+        mainEntityOfPage: canonicalURL.toString(),
+        url: canonicalURL.toString(),
+      };
+    case 'none':
+      return null;
+  }
+}
+const jsonLd = buildJsonLd();
 ---
 
 <!DOCTYPE html>
@@ -39,6 +126,11 @@ const OG_LOCALE_MAP: Record<Locale, string> = { it: 'it_IT', es: 'es_ES', en: 'e
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Font self-hosted da /public/fonts/ (vedi global.css) — niente più richieste a Google Fonts -->
+  <link rel="preload" href="/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/public-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
+
   <link rel="icon" type="image/png" href="/images/logo/icona.png" />
   <link rel="canonical" href={canonicalURL} />
 
@@ -48,12 +140,12 @@ const OG_LOCALE_MAP: Record<Locale, string> = { it: 'it_IT', es: 'es_ES', en: 'e
   ))}
   <link rel="alternate" hreflang="x-default" href={new URL(localizePath(DEFAULT_LOCALE, path), Astro.site)} />
 
-  <title>{title} · Magma 610 Bed and More</title>
+  <title>{fullTitle}</title>
   <meta name="description" content={description} />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content={`${title} · Magma 610 Bed and More`} />
+  <meta property="og:title" content={fullTitle} />
   <meta property="og:description" content={description} />
   <meta property="og:image" content={new URL(image, Astro.site)} />
   <meta property="og:url" content={canonicalURL} />
@@ -62,23 +154,8 @@ const OG_LOCALE_MAP: Record<Locale, string> = { it: 'it_IT', es: 'es_ES', en: 'e
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Schema.org: LodgingBusiness -->
-  <script type="application/ld+json" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "LodgingBusiness",
-    "name": "Magma 610 Bed and More",
-    "description": "B&B a conduzione diretta in pietra lavica a Pedara, sul versante sud dell'Etna. Due appartamenti indipendenti, Magma 102 e Magma 104.",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Via Faro Filadelfo, 102",
-      "addressLocality": "Pedara",
-      "addressRegion": "CT",
-      "postalCode": "95030",
-      "addressCountry": "IT"
-    },
-    "telephone": "+39 338 349 7138",
-    "url": "https://www.magma610.it"
-  })} />
+  <!-- Schema.org: tipo determinato dalla pagina, vedi prop "schema" -->
+  {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
 
   {lang === DEFAULT_LOCALE && <LangAutoDetect />}
 </head>
@@ -86,7 +163,7 @@ const OG_LOCALE_MAP: Record<Locale, string> = { it: 'it_IT', es: 'es_ES', en: 'e
   <header>
     <div class="wrap header-inner">
       <a href={localizePath(lang, '/')} aria-label="Magma 610 - Home">
-        <img class="logo-img" src="/images/logo/logo-orizzontale.png" alt="Magma 610 Bed and More" />
+        <img class="logo-img" src="/images/logo/logo-orizzontale.png" alt="Magma 610 Bed and More" width="1307" height="251" />
       </a>
       <MainNav lang={lang} currentPath={path} />
       <div class="header-actions">
@@ -97,6 +174,7 @@ const OG_LOCALE_MAP: Record<Locale, string> = { it: 'it_IT', es: 'es_ES', en: 'e
   </header>
 
   <main>
+    {breadcrumbItems && <Breadcrumb lang={lang} items={breadcrumbItems} />}
     <slot />
   </main>
 
@@ -104,8 +182,8 @@ const OG_LOCALE_MAP: Record<Locale, string> = { it: 'it_IT', es: 'es_ES', en: 'e
     <div class="wrap">
       <div class="footer-grid">
         <div>
-          <img class="footer-logo" src="/images/logo/logo-verticale.png" alt="Magma 610" />
-          <p>Via Faro Filadelfo, 102<br />95030 Pedara (CT), Sicilia</p>
+          <img class="footer-logo" src="/images/logo/logo-verticale.png" alt="Magma 610" width="1599" height="832" />
+          <p>Via Faro Filadelfo, 102, 104<br />95030 Pedara (CT), Sicilia</p>
         </div>
         <div>
           <h4>{footer.bAndB}</h4>
@@ -115,6 +193,7 @@ const OG_LOCALE_MAP: Record<Locale, string> = { it: 'it_IT', es: 'es_ES', en: 'e
           <h4>{footer.resources}</h4>
           <a href={localizePath(lang, '/blog')}>{nav.blog}</a>
           <a href={localizePath(lang, '/contatti')}>{nav.contatti}</a>
+          <a href={localizePath(lang, '/faq')}>{nav.faq}</a>
         </div>
         <div>
           <h4>{footer.book}</h4>
@@ -132,6 +211,7 @@ const OG_LOCALE_MAP: Record<Locale, string> = { it: 'it_IT', es: 'es_ES', en: 'e
   </footer>
 
   <CookieBanner lang={lang} />
+  <ChatWidget />
 </body>
 </html>
 

@@ -1,12 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import ContattiView from '../views/ContattiView.astro';
+import { NAV } from '../i18n/nav';
 ---
 <Layout
   lang="it"
-  title="Contatti"
-  description="Come raggiungere Magma 610 a Pedara, e come contattarci per informazioni sul soggiorno."
+  title="Contatti e Numero di Telefono — Magma 610, Pedara (CT)"
+  description="Contatta Magma 610 a Pedara (CT): indirizzo, numero di telefono e WhatsApp di Veronique, mappa e orari di check-in per organizzare il tuo soggiorno sull'Etna."
   currentPath="/contatti"
+  schema={{ kind: 'lodging' }}
+  breadcrumbItems={[{ label: NAV.it.contatti }]}
 >
   <ContattiView lang="it" />
 </Layout>

@@ -1,0 +1,19 @@
+---
+// Icone ufficiali Airbnb per Magma 104 — lette da file (public/images/camere/icone/)
+// invece di essere reinserite come stringhe inline nel componente.
+import fs from 'node:fs';
+import path from 'node:path';
+
+interface Props {
+  name: string; // nome file SVG senza estensione, es. 'wifi'
+}
+const { name } = Astro.props;
+
+const filePath = path.join(process.cwd(), 'public/images/camere/icone', `${name}.svg`);
+const raw = fs.readFileSync(filePath, 'utf-8');
+---
+<span class="amenity-icon-svg" set:html={raw} />
+
+<style>
+  .amenity-icon-svg { display: inline-flex; flex-shrink: 0; }
+</style>

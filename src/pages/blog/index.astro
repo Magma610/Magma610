@@ -2,9 +2,16 @@
 import Layout from '../../layouts/Layout.astro';
 import BlogIndexView from '../../views/BlogIndexView.astro';
 import { BLOG_UI } from '../../lib/blog-ui';
+import { NAV } from '../../i18n/nav';
 
 const ui = BLOG_UI.it;
 ---
-<Layout lang="it" title={ui.title} description={ui.lead} currentPath="/blog">
+<Layout
+  lang="it"
+  title={ui.title}
+  description={ui.lead}
+  currentPath="/blog"
+  breadcrumbItems={[{ label: NAV.it.blog }]}
+>
   <BlogIndexView lang="it" />
 </Layout>

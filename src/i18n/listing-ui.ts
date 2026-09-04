@@ -10,49 +10,56 @@ export const LISTING_UI: Record<Locale, {
   bagno: string;
   novita: string;
   whatYouFind: string;
-  showAllServices: (n: number) => string;
+  showAllServices: string;
+  showLessServices: string;
+  seeAllPhotos: string;
   priceInfo: string;
   bookOnAirbnb: string;
-  services: { wifi: string; cucina: string; parcheggio: string; tv: string; lavatrice: string; allarme: string };
+  seeAvailability: string;
 }> = {
   it: {
     tipo: 'Casa', ospiti: 'ospiti', camereDaLetto: 'camera da letto', monolocale: 'Monolocale',
     letto: 'letto', letti: 'letti', bagno: 'bagno', novita: '★ Novità',
     whatYouFind: 'Cosa troverai',
-    showAllServices: (n) => `Mostra tutti e ${n} i servizi`,
+    showAllServices: 'Scopri tutto', showLessServices: 'Mostra meno',
+    seeAllPhotos: 'Guarda tutte le foto',
     priceInfo: 'Prezzi e disponibilità su Airbnb', bookOnAirbnb: 'Prenota su Airbnb',
-    services: { wifi: 'Wifi', cucina: 'Cucina', parcheggio: 'Parcheggio gratuito in strada', tv: 'TV', lavatrice: 'Lavatrice', allarme: 'Allarme antincendio' },
+    seeAvailability: 'Vedi disponibilità',
   },
   es: {
     tipo: 'Casa', ospiti: 'huéspedes', camereDaLetto: 'dormitorio', monolocale: 'Estudio',
     letto: 'cama', letti: 'camas', bagno: 'baño', novita: '★ Novedad',
     whatYouFind: 'Qué encontrarás',
-    showAllServices: (n) => `Ver los ${n} servicios`,
+    showAllServices: 'Ver todos los servicios', showLessServices: 'Ver menos',
+    seeAllPhotos: 'Ver todas las fotos',
     priceInfo: 'Precios y disponibilidad en Airbnb', bookOnAirbnb: 'Reservar en Airbnb',
-    services: { wifi: 'Wifi', cucina: 'Cocina', parcheggio: 'Aparcamiento gratuito en la calle', tv: 'TV', lavatrice: 'Lavadora', allarme: 'Alarma de incendios' },
+    seeAvailability: 'Ver disponibilidad',
   },
   en: {
     tipo: 'House', ospiti: 'guests', camereDaLetto: 'bedroom', monolocale: 'Studio',
     letto: 'bed', letti: 'beds', bagno: 'bathroom', novita: '★ New',
     whatYouFind: "What you'll find",
-    showAllServices: (n) => `Show all ${n} amenities`,
+    showAllServices: 'Show all amenities', showLessServices: 'Show less',
+    seeAllPhotos: 'See all photos',
     priceInfo: 'Prices and availability on Airbnb', bookOnAirbnb: 'Book on Airbnb',
-    services: { wifi: 'Wifi', cucina: 'Kitchen', parcheggio: 'Free street parking', tv: 'TV', lavatrice: 'Washer', allarme: 'Smoke alarm' },
+    seeAvailability: 'See availability',
   },
   fr: {
     tipo: 'Maison', ospiti: 'voyageurs', camereDaLetto: 'chambre', monolocale: 'Studio',
     letto: 'lit', letti: 'lits', bagno: 'salle de bain', novita: '★ Nouveauté',
     whatYouFind: 'Ce que vous trouverez',
-    showAllServices: (n) => `Afficher les ${n} équipements`,
+    showAllServices: 'Afficher tous les équipements', showLessServices: 'Afficher moins',
+    seeAllPhotos: 'Voir toutes les photos',
     priceInfo: 'Prix et disponibilités sur Airbnb', bookOnAirbnb: 'Réserver sur Airbnb',
-    services: { wifi: 'Wifi', cucina: 'Cuisine', parcheggio: 'Parking gratuit dans la rue', tv: 'TV', lavatrice: 'Lave-linge', allarme: 'Détecteur de fumée' },
+    seeAvailability: 'Voir les disponibilités',
   },
   de: {
     tipo: 'Haus', ospiti: 'Gäste', camereDaLetto: 'Schlafzimmer', monolocale: 'Studio',
     letto: 'Bett', letti: 'Betten', bagno: 'Bad', novita: '★ Neu',
     whatYouFind: 'Ausstattung',
-    showAllServices: (n) => `Alle ${n} Ausstattungsmerkmale anzeigen`,
+    showAllServices: 'Alle Ausstattungsmerkmale anzeigen', showLessServices: 'Weniger anzeigen',
+    seeAllPhotos: 'Alle Fotos ansehen',
     priceInfo: 'Preise und Verfügbarkeit auf Airbnb', bookOnAirbnb: 'Auf Airbnb buchen',
-    services: { wifi: 'WLAN', cucina: 'Küche', parcheggio: 'Kostenlose Parkplätze auf der Straße', tv: 'TV', lavatrice: 'Waschmaschine', allarme: 'Rauchmelder' },
+    seeAvailability: 'Verfügbarkeit ansehen',
   },
 };

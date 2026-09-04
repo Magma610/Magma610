@@ -1,0 +1,17 @@
+---
+import Layout from '../layouts/Layout.astro';
+import FaqView from '../views/FaqView.astro';
+import { FAQ_PAGE } from '../i18n/faq';
+import { NAV } from '../i18n/nav';
+
+const t = FAQ_PAGE.it;
+---
+<Layout
+  lang="it"
+  title={t.metaTitle}
+  description={t.metaDescription}
+  currentPath="/faq"
+  breadcrumbItems={[{ label: NAV.it.faq }]}
+>
+  <FaqView lang="it" />
+</Layout>

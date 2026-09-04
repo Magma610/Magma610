@@ -22,7 +22,7 @@ const posts = postsForLocale(allPosts, lang);
     const slug = post.id.split('/').slice(1).join('/');
     return (
       <a class="blog-card" href={localizePath(lang, `/blog/${slug}`)}>
-        <div class="blog-photo"><img src={post.data.immagine} alt={post.data.titolo} /></div>
+        <div class="blog-photo"><img src={post.data.immagine} alt={post.data.titolo} width="1200" height="800" /></div>
         <span class="blog-date">
           {post.data.data.toLocaleDateString(ui.dateLocale, { day: 'numeric', month: 'long', year: 'numeric' })}
         </span>

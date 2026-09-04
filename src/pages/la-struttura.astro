@@ -1,12 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import StrutturaView from '../views/StrutturaView.astro';
+import { NAV } from '../i18n/nav';
 ---
 <Layout
   lang="it"
-  title="La Struttura"
-  description="Magma 610: corte in pietra lavica a Pedara, sul versante sud dell'Etna. Due appartamenti indipendenti, Magma 102 e Magma 104."
+  title="Appartamenti Indipendenti a Pedara Centro — Magma 610"
+  description="Due appartamenti vacanza indipendenti a Pedara centro, 300 metri dalla piazza: Magma 102 e Magma 104, in pietra lavica sul versante sud dell'Etna."
   currentPath="/la-struttura"
+  schema={{ kind: 'lodging' }}
+  breadcrumbItems={[{ label: NAV.it.struttura }]}
 >
   <StrutturaView lang="it" />
 </Layout>

@@ -1,0 +1,73 @@
+---
+// Breadcrumb visibile + JSON-LD BreadcrumbList corrispondente.
+// "Home" viene aggiunta automaticamente come primo elemento: passare solo i crumb successivi.
+// Un elemento senza `path` (es. una sezione senza pagina propria, come "Vivere il Territorio")
+// viene mostrato come testo semplice, non come link, e non entra nel JSON-LD.
+import { NAV } from '../i18n/nav';
+import { localizePath, type Locale } from '../i18n/locales';
+
+export interface BreadcrumbItem {
+  label: string;
+  path?: string; // path senza prefisso lingua, es. "/territorio/trekking-etna"
+}
+
+interface Props {
+  lang: Locale;
+  items: BreadcrumbItem[];
+}
+
+const { lang, items } = Astro.props;
+const nav = NAV[lang];
+const allItems: BreadcrumbItem[] = [{ label: nav.home, path: '/' }, ...items];
+
+// Ogni crumb entra nel JSON-LD (posizione + nome), anche quello senza pagina propria
+// (es. la sezione corrente, o "Vivere il Territorio" che non ha una pagina indice):
+// "item" (l'URL) si aggiunge solo se il crumb ha un path.
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: allItems.map((item, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: item.label,
+    ...(item.path ? { item: new URL(localizePath(lang, item.path), Astro.site).toString() } : {}),
+  })),
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+<nav class="breadcrumb wrap" aria-label="Breadcrumb">
+  <ol>
+    {allItems.map((item, i) => {
+      const isLast = i === allItems.length - 1;
+      return (
+        <li>
+          {item.path && !isLast ? (
+            <a href={localizePath(lang, item.path)}>{item.label}</a>
+          ) : (
+            <span aria-current={isLast ? 'page' : undefined}>{item.label}</span>
+          )}
+          {!isLast && <span class="sep" aria-hidden="true">/</span>}
+        </li>
+      );
+    })}
+  </ol>
+</nav>
+
+<style>
+  .breadcrumb { padding-top: 16px; }
+  .breadcrumb ol {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+  }
+  .breadcrumb li { display: flex; align-items: center; font-size: 13px; }
+  .breadcrumb a { color: var(--cenere); }
+  .breadcrumb a:hover { color: var(--azzurro); }
+  .breadcrumb span { color: var(--basalto); font-weight: 600; }
+  .breadcrumb span[aria-current] { color: var(--basalto); }
+  .breadcrumb .sep { color: var(--pomice); margin: 0 8px; font-weight: 400; }
+</style>

@@ -1,16 +1,10 @@
 ---
 interface Props {
-  name: 'wifi' | 'cucina' | 'parcheggio' | 'tv' | 'lavatrice' | 'allarme' | 'ospiti' | 'camera' | 'letto' | 'bagno';
+  name: 'ospiti' | 'camera' | 'letto' | 'bagno';
 }
 const { name } = Astro.props;
 
 const paths: Record<string, string> = {
-  wifi: '<path d="M3 8a15 15 0 0 1 18 0M6.5 11.5a10 10 0 0 1 11 0M10 15a5 5 0 0 1 4 0"/><circle cx="12" cy="19" r="1" fill="currentColor" stroke="none"/>',
-  cucina: '<path d="M6 3v6a3 3 0 0 0 6 0V3M9 9v12M17 3c-2 2-2 5-2 7a2 2 0 0 0 2 2v9"/>',
-  parcheggio: '<rect x="2" y="9" width="14" height="8" rx="1"/><path d="M16 11l5-2v8l-5-2"/>',
-  tv: '<rect x="3" y="5" width="18" height="13" rx="1"/><path d="M8 21h8M12 18v3"/>',
-  lavatrice: '<rect x="4" y="3" width="16" height="18" rx="2"/><circle cx="12" cy="13" r="5"/><circle cx="8" cy="6" r="0.8" fill="currentColor" stroke="none"/>',
-  allarme: '<circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/>',
   ospiti: '<path d="M3 12h18M3 12a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2M5 12v6M19 12v6M3 18h18"/><circle cx="8" cy="8" r="2"/>',
   camera: '<rect x="3" y="10" width="18" height="8" rx="1"/><path d="M5 10V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v3"/>',
   letto: '<rect x="4" y="8" width="16" height="11" rx="1"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/>',

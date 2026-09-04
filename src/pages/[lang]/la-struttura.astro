@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import StrutturaView from '../../views/StrutturaView.astro';
 import { STRUTTURA } from '../../i18n/struttura';
+import { NAV } from '../../i18n/nav';
 import type { Locale } from '../../i18n/locales';
 
 export function getStaticPaths() {
@@ -11,6 +12,13 @@ export function getStaticPaths() {
 const { lang } = Astro.params as { lang: Exclude<Locale, 'it'> };
 const t = STRUTTURA[lang];
 ---
-<Layout lang={lang} title={t.title} description={t.lead} currentPath="/la-struttura">
+<Layout
+  lang={lang}
+  title={t.title}
+  description={t.lead}
+  currentPath="/la-struttura"
+  schema={{ kind: 'lodging' }}
+  breadcrumbItems={[{ label: NAV[lang].struttura }]}
+>
   <StrutturaView lang={lang} />
 </Layout>

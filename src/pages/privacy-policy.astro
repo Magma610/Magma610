@@ -10,7 +10,7 @@ import Layout from '../layouts/Layout.astro';
   <section class="wrap legal">
     <span class="eyebrow">Informativa</span>
     <h1>Privacy Policy</h1>
-    <p class="updated">Ultimo aggiornamento: <em>[data da inserire]</em></p>
+    <p class="updated">Ultimo aggiornamento: <em>4 settembre 2026</em></p>
 
     <p class="disclaimer">
       Questo testo è una struttura di base, da far verificare a un consulente legale o al proprio
@@ -19,11 +19,10 @@ import Layout from '../layouts/Layout.astro';
 
     <h2>1. Titolare del trattamento</h2>
     <p>
-      <em>[Ragione sociale / nome e cognome del titolare]</em><br />
-      Via Faro Filadelfo, 102 — 95030 Pedara (CT)<br />
-      <em>[Partita IVA / Codice Fiscale]</em><br />
-      Telefono: <a href="tel:+393383497138">338 349 7138</a><br />
-      Email: <em>[indirizzo email da attivare]</em>
+      Fabio Tringale<br />
+      Via Faro Filadelfo, 102, 104 — 95030 Pedara (CT), Sicilia<br />
+      Telefono: <a href="tel:+393801824545">+39 380 182 4545</a><br />
+      Email: <a id="titolare-email" href="#">visualizza indirizzo email</a>
     </p>
 
     <h2>2. Dati raccolti e finalità del trattamento</h2>
@@ -50,7 +49,16 @@ import Layout from '../layouts/Layout.astro';
     </p>
 
     <h2>5. Conservazione dei dati</h2>
-    <p><em>[Periodo di conservazione da definire in base alle finalità — es. dati di contatto conservati per il tempo necessario a evadere la richiesta]</em></p>
+    <p>
+      I dati di contatto forniti tramite richieste di informazioni o disponibilità sono conservati per
+      il tempo necessario a evadere la richiesta.
+    </p>
+    <p>
+      Previo consenso esplicito e specifico dell'interessato — distinto dal semplice invio di una
+      richiesta di informazioni — gli stessi dati possono essere conservati anche per finalità di
+      marketing (ad esempio comunicazioni su offerte e novità). Tale consenso è revocabile in qualsiasi
+      momento scrivendo all'indirizzo email indicato al punto 1.
+    </p>
 
     <h2>6. Diritti dell'interessato</h2>
     <p>
@@ -66,6 +74,21 @@ import Layout from '../layouts/Layout.astro';
       standard previste dalla normativa. <em>[Da dettagliare quando gli strumenti verranno effettivamente attivati]</em>
     </p>
   </section>
+
+  <script>
+    // Indirizzo email del titolare composto a runtime per non comparire in chiaro
+    // nell'HTML statico generato in fase di build (protezione anti-scraping).
+    // Nota: una concatenazione diretta di stringhe/template literal verrebbe
+    // ricostruita in chiaro dal minifier in fase di build — serve un passaggio
+    // che il minifier non possa risolvere staticamente, qui una decodifica base64.
+    const address = atob('ZmFiaW90cmluZ2FsZUBnbWFpbC5jb20=');
+
+    const link = document.getElementById('titolare-email');
+    if (link) {
+      link.setAttribute('href', `mailto:${address}`);
+      link.textContent = address;
+    }
+  </script>
 </Layout>
 
 <style>
@@ -74,7 +97,7 @@ import Layout from '../layouts/Layout.astro';
   .legal h1 { font-size: 38px; margin: 10px 0 6px; }
   .legal .updated { color: var(--cenere); font-size: 13.5px; margin-bottom: 20px; }
   .legal .disclaimer {
-    background: var(--pomice-light); border-radius: 10px; padding: 14px 18px;
+    background: var(--pomice); border-radius: 10px; padding: 14px 18px;
     font-size: 13.5px; color: var(--cenere); margin-bottom: 32px;
   }
   .legal h2 { font-size: 20px; margin: 30px 0 10px; }

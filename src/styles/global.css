@@ -1,21 +1,57 @@
 /* =========================================================
+   Font self-hosted (ex Google Fonts) — file variabili in /public/fonts/,
+   un solo file per subset condiviso tra tutti i pesi (400/500/600[/700]).
+   ========================================================= */
+@font-face {
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url('/fonts/fraunces-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url('/fonts/fraunces-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Public Sans';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/fonts/public-sans-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Public Sans';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/fonts/public-sans-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* =========================================================
    MAGMA 610 — Design tokens
    Palette ispirata alla geologia dell'Etna (basalto, lava, ginestra)
    + azzurro del logo come colore informativo
    ========================================================= */
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:wght@400;500;600;700&display=swap');
-
 :root {
   /* Colori */
   --basalto: #1C1917;
+  --bianco: #FFFCF7;
+  --pomice: #E8E0D2;
   --lava: #C4401E;
   --lava-dark: #9E3216;
   --ginestra: #A8973C;
-  --azzurro: #53657E;
-  --pomice: #E8E0D2;
-  --pomice-light: #F3EEE3;
   --cenere: #6B6560;
-  --bianco: #FFFCF7;
+  --azzurro: #53657E;
+  --azzurro-chiaro: #E6EBEF;
+  --azzurro-scuro: #3D4A5E;
 
   /* Raggi e ombre — linguaggio Airbnb-style */
   --r-card: 16px;
@@ -91,4 +127,4 @@ section { padding: 80px 0; }
   font-weight: 700;
   transition: background .15s ease, color .15s ease;
 }
-.btn-outline:hover { background: var(--azzurro); color: var(--bianco); }
+.btn-outline:hover { background: var(--azzurro-scuro); border-color: var(--azzurro-scuro); color: var(--bianco); }

@@ -1,0 +1,56 @@
+---
+import { Picture } from 'astro:assets';
+import { LISTING_UI } from '../i18n/listing-ui';
+import { getCamereImage } from '../lib/camere-images';
+import { localizePath, type Locale } from '../i18n/locales';
+
+interface Listing {
+  slug: 'magma-104' | 'magma-102';
+  name: string;
+  ospiti: number;
+  bagni: number;
+  foto: string[];
+}
+
+interface Props {
+  listing: Listing;
+  lang: Locale;
+}
+const { listing, lang } = Astro.props;
+const ui = LISTING_UI[lang];
+const coverImage = getCamereImage(listing.foto[0]);
+---
+<a class="mini-card" href={`${localizePath(lang, '/la-struttura')}#${listing.slug}`}>
+  <Picture
+    src={coverImage}
+    formats={['avif', 'webp']}
+    widths={[300, 600]}
+    sizes="(max-width: 640px) 50vw, 300px"
+    alt={`${listing.name}, appartamento vacanza a Pedara`}
+    loading="lazy"
+  />
+  <div class="mini-card-body">
+    <h3>{listing.name}</h3>
+    <p class="mini-card-facts">{listing.ospiti} {ui.ospiti} · {listing.bagni} {ui.bagno}</p>
+    <span class="btn-book mini-card-cta">{ui.seeAvailability}</span>
+  </div>
+</a>
+
+<style>
+  .mini-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(28, 25, 23, 0.10);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    background: var(--bianco);
+    transition: box-shadow .15s ease;
+  }
+  .mini-card:hover { box-shadow: var(--shadow-hover); }
+  .mini-card img { width: 100%; height: 160px; object-fit: cover; }
+  .mini-card-body { padding: 16px 18px 20px; }
+  .mini-card-body h3 { font-size: 18px; margin-bottom: 6px; }
+  .mini-card-facts { font-size: 14px; color: var(--cenere); margin-bottom: 14px; }
+  .mini-card-cta { display: inline-block; font-size: 13px; padding: 8px 16px; }
+</style>

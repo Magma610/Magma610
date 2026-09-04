@@ -24,18 +24,21 @@ const isActive = (path: string) => currentPath === path;
       <a href={localizePath(lang, `/territorio/${TERRITORIO_SLUGS.alcantara}`)}>{submenu.alcantara}</a>
       <a href={localizePath(lang, `/territorio/${TERRITORIO_SLUGS.taormina}`)}>{submenu.taormina}</a>
       <a href={localizePath(lang, `/territorio/${TERRITORIO_SLUGS.catania}`)}>{submenu.catania}</a>
+      <a href={localizePath(lang, `/territorio/${TERRITORIO_SLUGS.bici}`)}>{submenu.bici}</a>
+      <a href={localizePath(lang, `/territorio/${TERRITORIO_SLUGS.morgagni}`)}>{submenu.morgagni}</a>
     </div>
   </details>
 
   <a href={localizePath(lang, '/blog')} class={currentPath.startsWith('/blog') ? 'active' : ''}>{nav.blog}</a>
+  <a href={localizePath(lang, '/faq')} class={isActive('/faq') ? 'active' : ''}>{nav.faq}</a>
   <a href={localizePath(lang, '/contatti')} class={isActive('/contatti') ? 'active' : ''}>{nav.contatti}</a>
 </nav>
 
 <style>
   .main-nav { display: flex; gap: 8px; align-items: center; background: var(--bianco); border: 1px solid rgba(28,25,23,0.12); border-radius: var(--r-pill); padding: 6px; box-shadow: var(--shadow-card); }
   .main-nav > a { font-size: 14px; color: var(--basalto); padding: 9px 16px; border-radius: var(--r-pill); font-weight: 600; transition: background .15s ease; }
-  .main-nav > a:hover { background: var(--pomice-light); }
-  .main-nav > a.active { background: var(--azzurro); color: var(--bianco); }
+  .main-nav > a:hover { background: var(--azzurro-chiaro); }
+  .main-nav > a.active { background: var(--azzurro-scuro); color: var(--bianco); }
 
   .territorio-drop { position: relative; }
   .territorio-drop summary {
@@ -43,15 +46,15 @@ const isActive = (path: string) => currentPath === path;
     font-weight: 600; cursor: pointer; list-style: none;
   }
   .territorio-drop summary::-webkit-details-marker { display: none; }
-  .territorio-drop summary:hover { background: var(--pomice-light); }
-  .territorio-drop[open] summary { background: var(--azzurro); color: var(--bianco); }
+  .territorio-drop summary:hover { background: var(--azzurro-chiaro); }
+  .territorio-drop[open] summary { background: var(--azzurro-scuro); color: var(--bianco); }
   .territorio-panel {
     position: absolute; top: calc(100% + 8px); left: 50%; transform: translateX(-50%);
     background: var(--bianco); border: 1px solid rgba(28,25,23,0.12); border-radius: 14px;
     box-shadow: var(--shadow-hover); padding: 8px; min-width: 210px; z-index: 200;
   }
   .territorio-panel a { display: block; padding: 10px 14px; border-radius: 8px; font-size: 14px; color: var(--basalto); white-space: nowrap; }
-  .territorio-panel a:hover { background: var(--pomice-light); color: var(--lava); }
+  .territorio-panel a:hover { background: var(--azzurro-chiaro); color: var(--lava); }
 
   @media (max-width: 900px) {
     .main-nav { display: none; }

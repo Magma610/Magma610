@@ -2,6 +2,8 @@
 import { TERRITORIO_CONTENT, TERRITORIO_IMAGES, type TerritorioSlug } from '../i18n/territorio';
 import { NAV } from '../i18n/nav';
 import { localizePath, type Locale } from '../i18n/locales';
+import { listings } from '../data/listings.js';
+import ApartmentMiniCard from '../components/ApartmentMiniCard.astro';
 
 interface Props {
   lang: Locale;
@@ -11,9 +13,14 @@ const { lang, slug } = Astro.props;
 const t = TERRITORIO_CONTENT[slug][lang];
 const img = TERRITORIO_IMAGES[slug];
 const nav = NAV[lang];
+
+// Spezza le sezioni a metà per inserire in mezzo il blocco appartamenti.
+const splitAt = Math.ceil(t.body.length / 2);
+const bodyFirstHalf = t.body.slice(0, splitAt);
+const bodySecondHalf = t.body.slice(splitAt);
 ---
 <section class="hero-detail">
-  <img src={img} alt={t.title} />
+  <img src={img} alt={t.imageAlt} width="1600" height="900" />
   <div class="hero-scrim"></div>
   <div class="hero-text wrap">
     <a href={localizePath(lang, '/la-struttura')} class="back-link">← {nav.struttura}</a>
@@ -22,8 +29,66 @@ const nav = NAV[lang];
   </div>
 </section>
 
-<section class="wrap body-text">
-  {t.body.map((paragraph) => <p>{paragraph}</p>)}
+<section class="body-text">
+  {bodyFirstHalf.map((section) => (
+    <>
+      <h2>{section.heading}</h2>
+      {section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+      {section.table && (
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>{section.table.headers.map((h) => <th>{h}</th>)}</tr>
+            </thead>
+            <tbody>
+              {section.table.rows.map((row) => (
+                <tr>{row.map((cell) => <td>{cell}</td>)}</tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+      {section.links && (
+        <ul class="related-links">
+          {section.links.map((link) => (
+            <li><a href={localizePath(lang, link.path)}>{link.label} →</a></li>
+          ))}
+        </ul>
+      )}
+    </>
+  ))}
+
+  <div class="mini-apartments">
+    {listings.map((listing) => <ApartmentMiniCard listing={listing} lang={lang} />)}
+  </div>
+
+  {bodySecondHalf.map((section) => (
+    <>
+      <h2>{section.heading}</h2>
+      {section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+      {section.table && (
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>{section.table.headers.map((h) => <th>{h}</th>)}</tr>
+            </thead>
+            <tbody>
+              {section.table.rows.map((row) => (
+                <tr>{row.map((cell) => <td>{cell}</td>)}</tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+      {section.links && (
+        <ul class="related-links">
+          {section.links.map((link) => (
+            <li><a href={localizePath(lang, link.path)}>{link.label} →</a></li>
+          ))}
+        </ul>
+      )}
+    </>
+  ))}
 </section>
 
 <style>
@@ -35,6 +100,29 @@ const nav = NAV[lang];
   .hero-text h1 { font-size: 40px; margin-bottom: 12px; }
   .hero-text p { font-size: 17px; max-width: 600px; color: rgba(255,252,247,0.92); }
 
-  .body-text { padding-top: 48px; max-width: 720px; }
-  .body-text p { font-size: 16px; line-height: 1.8; color: var(--basalto); margin-bottom: 18px; }
+  .body-text { padding: 48px 32px 64px; display: flex; flex-direction: column; align-items: center; }
+  .body-text p { font-size: 16px; line-height: 1.8; color: var(--basalto); margin-bottom: 18px; max-width: 780px; width: 100%; }
+  .body-text h2 { font-size: 22px; margin: 8px 0 14px; max-width: 780px; width: 100%; color: var(--basalto); }
+
+  .table-wrap { max-width: 780px; width: 100%; overflow-x: auto; margin-bottom: 24px; border-radius: var(--r-card); box-shadow: var(--shadow-card); }
+  .table-wrap table { width: 100%; border-collapse: collapse; font-size: 14.5px; background: var(--bianco); }
+  .table-wrap th, .table-wrap td { padding: 12px 16px; text-align: left; white-space: nowrap; }
+  .table-wrap th { background: var(--azzurro-chiaro); color: var(--azzurro-scuro); font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 0.03em; }
+  .table-wrap tr:not(:last-child) td { border-bottom: 1px solid rgba(28, 25, 23, 0.08); }
+
+  .related-links { list-style: none; max-width: 780px; width: 100%; margin: 0 0 18px; display: flex; flex-direction: column; gap: 8px; }
+  .related-links a { color: var(--azzurro); font-weight: 600; font-size: 15px; }
+  .related-links a:hover { color: var(--azzurro-scuro); }
+
+  .mini-apartments {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 780px;
+    width: 100%;
+    margin: 12px 0 32px;
+  }
+  @media (max-width: 640px) {
+    .mini-apartments { grid-template-columns: 1fr; }
+  }
 </style>

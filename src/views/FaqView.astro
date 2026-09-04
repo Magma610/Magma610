@@ -1,0 +1,47 @@
+---
+import FaqAccordion from '../components/FaqAccordion.astro';
+import { FAQ_PAGE } from '../i18n/faq';
+import type { Locale } from '../i18n/locales';
+
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const t = FAQ_PAGE[lang];
+
+// Il JSON-LD FAQPage viene emesso solo in italiano: è l'unica lingua con contenuto definitivo,
+// le altre hanno ancora testo segnaposto (vedi TODO in src/i18n/faq.ts).
+const itFaq = FAQ_PAGE.it;
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: itFaq.categories.flatMap((cat) =>
+    cat.items.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    }))
+  ),
+};
+---
+{lang === 'it' && (
+  <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+)}
+
+<section class="wrap page-hero">
+  <h1>{t.title}</h1>
+  <p class="lead">{t.intro}</p>
+</section>
+
+<section class="wrap faq-body">
+  <FaqAccordion categories={t.categories} />
+</section>
+
+<style>
+  .page-hero { padding-top: 56px; padding-bottom: 8px; max-width: 720px; }
+  .page-hero h1 { font-size: 42px; margin-bottom: 14px; }
+  .page-hero .lead { color: var(--cenere); font-size: 17px; }
+
+  .faq-body { padding-top: 24px; padding-bottom: 56px; max-width: 780px; }
+</style>

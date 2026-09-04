@@ -1,0 +1,23 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import FaqView from '../../views/FaqView.astro';
+import { FAQ_PAGE } from '../../i18n/faq';
+import { NAV } from '../../i18n/nav';
+import type { Locale } from '../../i18n/locales';
+
+export function getStaticPaths() {
+  return (['es', 'en', 'fr', 'de'] as const).map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params as { lang: Exclude<Locale, 'it'> };
+const t = FAQ_PAGE[lang];
+---
+<Layout
+  lang={lang}
+  title={t.metaTitle}
+  description={t.metaDescription}
+  currentPath="/faq"
+  breadcrumbItems={[{ label: NAV[lang].faq }]}
+>
+  <FaqView lang={lang} />
+</Layout>

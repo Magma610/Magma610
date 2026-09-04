@@ -1,7 +1,7 @@
 // Dati reali presi dagli annunci Airbnb di Magma 102 e Magma 104.
-// NOTA: le foto sono ancora linkate dal CDN di Airbnb (muscache.com).
-// Prima della messa online definitiva vanno scaricate e servite da /public/images/camere/
-// (Next/Image-style optimization non serve qui, ma va comunque evitata la dipendenza esterna).
+// "foto" contiene path relativi a src/assets/camere/ (risolti via getCamereImage,
+// vedi src/lib/camere-images.ts), non URL pubblici: servono all'<Image> di astro:assets
+// per generare WebP/AVIF + srcset.
 
 export const listings = [
   {
@@ -15,13 +15,32 @@ export const listings = [
     bagni: 1,
     descrizione:
       "Dimora di charme in pietra lavica nel cuore di Pedara, alle pendici dell'Etna. Un appartamento accogliente e curato, dove il fascino dell'architettura siciliana incontra il comfort moderno. Ambienti luminosi, spazi funzionali e una caratteristica corte esterna attrezzata — la posizione ideale per scoprire l'Etna, i borghi vicini e la Sicilia orientale.",
-    totaleServizi: 34,
+    serviziEsclusi: [],
     foto: [
-      'https://a0.muscache.com/im/pictures/hosting/Hosting-1748467293214784281/original/a213e58d-d0cb-4b69-b125-99420b2097ea.png?im_w=1200&auto=webp',
-      'https://a0.muscache.com/im/pictures/hosting/Hosting-1748467293214784281/original/7590053f-1a9b-45f1-816b-e2aea14f6a22.png?im_w=1200&auto=webp',
-      'https://a0.muscache.com/im/pictures/hosting/Hosting-1748467293214784281/original/27370447-41fc-4630-9a8b-8878a3b8bd21.png?im_w=720&auto=webp',
-      'https://a0.muscache.com/im/pictures/hosting/Hosting-1748467293214784281/original/26b7dca2-0890-4821-9bcb-c1db43ae0db9.png?im_w=720&auto=webp',
-      'https://a0.muscache.com/im/pictures/hosting/Hosting-1748467293214784281/original/cd32ad4e-1ce6-481d-8d88-a5963656da00.png?im_w=720&auto=webp',
+      // Esterni
+      'magma-104/06.jpg',
+      'magma-104/04.jpg',
+      // Interni
+      'magma-104/01.jpg',
+      'magma-104/03.jpg',
+      'magma-104/05.jpg',
+      'magma-104/07.jpg',
+      'magma-104/08.jpg',
+      'magma-104/09.jpg',
+      'magma-104/10.jpg',
+      'magma-104/11.jpg',
+      'magma-104/12.jpg',
+      'magma-104/13.jpg',
+      'magma-104/14.jpg',
+      'magma-104/15.jpg',
+      'magma-104/21.jpg',
+      // Corte interna
+      'magma-104/02.jpg',
+      'magma-104/16.jpg',
+      'magma-104/17.jpg',
+      'magma-104/18.jpg',
+      'magma-104/19.jpg',
+      'magma-104/20.jpg',
     ],
   },
   {
@@ -35,24 +54,25 @@ export const listings = [
     bagni: 1,
     descrizione:
       "Dimora di charme in pietra lavica nel cuore di Pedara, alle pendici dell'Etna. Un monolocale accogliente e curato, dove il fascino dell'architettura siciliana incontra il comfort moderno. Zona notte e zona soggiorno in un unico ambiente luminoso, con una caratteristica corte esterna attrezzata — la posizione ideale per scoprire l'Etna, i borghi vicini e la Sicilia orientale.",
-    totaleServizi: 31,
+    serviziEsclusi: ['travel-crib'], // a differenza di Magma 104, non ha box bebè/culla da viaggio
     foto: [
-      'https://a0.muscache.com/im/pictures/hosting/Hosting-1748595559509576063/original/666c3f9d-36a8-411f-9eef-e59c6f291955.png?im_w=1200&auto=webp',
-      'https://a0.muscache.com/im/pictures/hosting/Hosting-1748595559509576063/original/307ba0a7-afe2-4b00-bcf3-502215970987.png?im_w=1200&auto=webp',
-      'https://a0.muscache.com/im/pictures/hosting/Hosting-1748595559509576063/original/88c327bb-2ba7-40ba-af71-4fb5bb226121.png?im_w=720&auto=webp',
-      'https://a0.muscache.com/im/pictures/hosting/Hosting-1748595559509576063/original/e3ec01b5-a50c-4fe9-9042-454ec9c22413.png?im_w=720&auto=webp',
-      'https://a0.muscache.com/im/pictures/hosting/Hosting-1748595559509576063/original/6805aafd-a69a-41bf-b8b5-34b32e6925bb.png?im_w=720&auto=webp',
+      // Esterni
+      'magma-102/14.jpg',
+      'magma-102/06.jpg',
+      // Interni
+      'magma-102/01.jpg',
+      'magma-102/02.jpg',
+      'magma-102/03.jpg',
+      'magma-102/05.jpg',
+      'magma-102/07.jpg',
+      'magma-102/08.jpg',
+      'magma-102/09.jpg',
+      'magma-102/10.jpg',
+      // Corte interna
+      'magma-102/04.jpg',
+      'magma-102/11.jpg',
+      'magma-102/12.jpg',
+      'magma-102/13.jpg',
     ],
   },
-];
-
-// Servizi comuni ai due appartamenti (dalla sezione "Cosa troverai" di Airbnb).
-// L'icona è una chiave che il componente Amenity.astro sa disegnare.
-export const serviziBase = [
-  { icona: 'wifi', label: 'Wifi' },
-  { icona: 'cucina', label: 'Cucina' },
-  { icona: 'parcheggio', label: 'Parcheggio gratuito in strada' },
-  { icona: 'tv', label: 'TV' },
-  { icona: 'lavatrice', label: 'Lavatrice' },
-  { icona: 'allarme', label: 'Allarme antincendio', nonDisponibile: true },
 ];

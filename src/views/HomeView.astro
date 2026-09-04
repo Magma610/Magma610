@@ -19,12 +19,14 @@ const territorioItems = [
   { key: 'alcantara', label: submenu.alcantara, slug: TERRITORIO_SLUGS.alcantara, img: TERRITORIO_IMAGES['gole-alcantara'] },
   { key: 'taormina', label: submenu.taormina, slug: TERRITORIO_SLUGS.taormina, img: TERRITORIO_IMAGES.taormina },
   { key: 'catania', label: submenu.catania, slug: TERRITORIO_SLUGS.catania, img: TERRITORIO_IMAGES['catania-storica'] },
+  { key: 'bici', label: submenu.bici, slug: TERRITORIO_SLUGS.bici, img: TERRITORIO_IMAGES['bici-etna'] },
+  // Foto diversa da quella di testata della pagina dedicata: qui la parte
+  // rilevante dell'inquadratura è sulla destra, vedi object-position sotto.
+  { key: 'morgagni', label: submenu.morgagni, slug: TERRITORIO_SLUGS.morgagni, img: '/images/territorio/centro-cuore-morgagni-pedara.jpg', pos: 'right center' },
 ];
 ---
-<div class="photo-note">Bozza — foto di Magma 102/104 reali dagli annunci Airbnb; territorio con foto stock su licenza libera (Unsplash)</div>
-
 <section class="hero">
-  <img class="hero-bg" src={IMG_HERO} alt="Etna" />
+  <img class="hero-bg" src={IMG_HERO} alt="Etna" width="1800" height="1200" />
   <div class="hero-scrim"></div>
   <div class="hero-content">
     <div class="wrap">
@@ -56,7 +58,7 @@ const territorioItems = [
   <div class="territorio-grid">
     {territorioItems.map((item) => (
       <a class="territorio-item" href={localizePath(lang, `/territorio/${item.slug}`)}>
-        <img src={item.img} alt={item.label} />
+        <img src={item.img} alt={item.label} width="900" height="1200" style={item.pos ? `object-position: ${item.pos}` : undefined} />
         <div class="territorio-label">{item.label}</div>
       </a>
     ))}
@@ -70,7 +72,7 @@ const territorioItems = [
       <span class="eyebrow">{t.chatEyebrow}</span>
       <h2>{t.chatTitle}</h2>
       <p>{t.chatText}</p>
-      <span class="chat-badge">{t.chatCta}</span>
+      <button type="button" class="chat-badge" id="home-chat-cta">{t.chatCta}</button>
     </div>
   </div>
 </section>
@@ -92,8 +94,6 @@ const territorioItems = [
 </div>
 
 <style>
-  .photo-note { background: var(--pomice-light); text-align: center; padding: 12px 20px; font-size: 12.5px; color: var(--cenere); }
-
   .hero { position: relative; overflow: hidden; min-height: 560px; display: flex; align-items: center; }
   .hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
   .hero-scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(28,25,23,0.30) 0%, rgba(28,25,23,0.35) 50%, rgba(28,25,23,0.55) 100%); z-index: 1; }
@@ -110,7 +110,7 @@ const territorioItems = [
   .section-head h2 { font-size: 34px; margin-top: 8px; color: var(--basalto); }
   .section-head p { color: var(--cenere); font-size: 16px; margin-top: 12px; }
 
-  .territorio-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+  .territorio-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
   .territorio-item { position: relative; border-radius: 16px; overflow: hidden; aspect-ratio: 3/4; background: var(--basalto); box-shadow: var(--shadow-card); display: block; }
   .territorio-item img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; transition: transform .3s ease; }
   .territorio-item:hover img { transform: scale(1.06); }
@@ -119,21 +119,28 @@ const territorioItems = [
   @media (max-width: 620px) { .territorio-grid { grid-template-columns: repeat(2, 1fr); } }
 
   .chat-box {
-    display: flex; align-items: center; gap: 28px; background: var(--pomice-light);
+    display: flex; align-items: center; gap: 28px; background: var(--azzurro-chiaro);
     border-radius: 20px; padding: 36px 40px; flex-wrap: wrap;
   }
   .chat-icon { font-size: 40px; background: var(--bianco); width: 76px; height: 76px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: var(--shadow-card); }
   .chat-box .eyebrow { color: var(--ginestra); font-weight: 700; font-size: 14px; }
   .chat-box h2 { font-size: 24px; margin: 6px 0 10px; }
   .chat-box p { color: var(--cenere); font-size: 15px; max-width: 520px; margin-bottom: 14px; }
-  .chat-badge { display: inline-block; font-size: 12.5px; font-weight: 700; color: var(--azzurro); border: 1px solid var(--azzurro); padding: 5px 12px; border-radius: var(--r-pill); }
+  .chat-badge { display: inline-block; font-size: 12.5px; font-weight: 700; color: var(--azzurro); border: 1px solid var(--azzurro); padding: 5px 12px; border-radius: var(--r-pill); background: none; font-family: inherit; cursor: pointer; }
+  .chat-badge:hover { background: var(--azzurro); color: var(--bianco); }
 
   .review-strip { background: var(--basalto); color: var(--bianco); padding: 64px 0; }
   .review-strip blockquote { font-family: var(--font-display); font-size: 26px; font-weight: 400; max-width: 760px; margin: 0 auto 20px; text-align: center; }
   .review-strip .stars { color: var(--ginestra); font-size: 18px; margin-bottom: 18px; letter-spacing: 3px; text-align: center; }
   .review-strip cite { font-style: normal; font-size: 14px; color: rgba(255,252,247,0.65); display: block; text-align: center; }
 
-  .cta-final { background: var(--pomice-light); text-align: center; padding: 88px 0; }
+  .cta-final { background: var(--azzurro-chiaro); text-align: center; padding: 88px 0; }
   .cta-final h2 { font-size: 32px; margin-bottom: 14px; max-width: 600px; margin-left: auto; margin-right: auto; font-family: var(--font-display); }
   .cta-final p { color: var(--cenere); margin-bottom: 28px; }
 </style>
+
+<script>
+  document.getElementById('home-chat-cta')?.addEventListener('click', () => {
+    window.dispatchEvent(new Event('magma-open-chat'));
+  });
+</script>
