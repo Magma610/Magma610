@@ -89,12 +89,14 @@ const t = COOKIE_BANNER[lang];
     flex-shrink: 0;
   }
   .cookie-actions .btn-outline {
-    border-color: rgba(255,252,247,0.4);
+    background: var(--ginestra);
+    border: none;
     color: var(--bianco);
     white-space: nowrap;
   }
   .cookie-actions .btn-outline:hover {
-    background: rgba(255,252,247,0.12);
+    background: var(--ginestra);
+    filter: brightness(0.9);
     color: var(--bianco);
   }
   @media (max-width: 700px) {
