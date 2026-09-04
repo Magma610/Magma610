@@ -48,4 +48,16 @@ const { Content } = await render(post);
   .post-body :global(p) { margin-bottom: 18px; }
   .post-body :global(ul) { margin: 0 0 18px 20px; }
   .post-body :global(li) { margin-bottom: 10px; }
+
+  .post-body :global(.post-cta) {
+    background: var(--pomice-light);
+    border-radius: 14px;
+    padding: 24px 28px;
+    margin: 32px 0;
+  }
+  .post-body :global(.post-cta p) { margin-bottom: 10px; }
+  .post-body :global(.post-cta p:last-child) { margin-bottom: 0; }
+  .post-body :global(.post-cta-label) { color: var(--ginestra); font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 0.02em; }
+  .post-body :global(.post-cta-buttons) { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+  .post-body :global(.post-cta-buttons .btn-book) { padding: 11px 22px; font-size: 14px; }
 </style>

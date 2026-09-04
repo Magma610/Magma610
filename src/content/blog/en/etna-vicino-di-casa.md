@@ -6,8 +6,6 @@ immagine: "https://images.unsplash.com/photo-1625152932634-4cb0ad4ec475?fm=jpg&q
 tema: "Etna excursions"
 ---
 
-*[Placeholder text — to be replaced with final editorial content.]*
-
 In Pedara, Etna isn't a destination you travel to — it's already there, visible from every courtyard and terrace at Magma 610. You wake up with the volcano's profile in front of you, and in the evening you watch it turn pink at sunset. For anyone staying on the south side, Europe's most active volcano isn't an excursion to plan weeks in advance: it's a next-door neighbour, a few minutes away by car.
 
 This article is for anyone who has never set foot on Etna and wants to plan a first outing without surprises — from viewpoints you can drive to, to more demanding trails for those who want to head up toward the summit craters.
@@ -40,5 +38,3 @@ For a first approach, we recommend booking with one of the many local mountain g
 Early morning generally offers the clearest views, before the afternoon haze typical of Sicilian summers reduces visibility toward the coast. Anyone wanting to catch sunrise from the summit craters should plan a very early start and, if not an experienced hiker, the company of a guide — the trail in the dark isn't recommended for those unfamiliar with the route.
 
 From the south side, where Magma 610 is located, many of the starting points for these excursions are just 20–30 minutes away by car — one more reason we recommend guests set aside at least a full day for Etna during their stay, without rushing.
-
-*(Final editorial content to be provided — this text is a structural placeholder.)*

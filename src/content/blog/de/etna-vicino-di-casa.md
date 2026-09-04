@@ -6,8 +6,6 @@ immagine: "https://images.unsplash.com/photo-1625152932634-4cb0ad4ec475?fm=jpg&q
 tema: "Ätna-Ausflüge"
 ---
 
-*[Platzhaltertext — wird durch den endgültigen redaktionellen Inhalt ersetzt.]*
-
 In Pedara ist der Ätna kein Reiseziel, das man erst erreichen muss — er ist bereits da, sichtbar von jedem Innenhof und jeder Terrasse von Magma 610 aus. Man wacht mit dem Profil des Vulkans vor Augen auf, und abends sieht man ihn sich beim Sonnenuntergang rosa färben. Für Gäste an der Südflanke ist Europas aktivster Vulkan kein Ausflug, den man Wochen im Voraus planen muss: Er ist ein direkter Nachbar, nur wenige Autominuten entfernt.
 
 Dieser Artikel richtet sich an alle, die den Ätna noch nie betreten haben und ihren ersten Ausflug ohne Überraschungen planen möchten — von Aussichtspunkten, die mit dem Auto erreichbar sind, bis zu anspruchsvolleren Wegen für alle, die zu den Gipfelkratern hinaufwollen.
@@ -40,5 +38,3 @@ Für den ersten Ausflug empfehlen wir, sich an einen der zahlreichen lokalen Ber
 Der frühe Morgen bietet in der Regel die klarste Sicht, bevor der für sizilianische Sommer typische Nachmittagsdunst die Sicht zur Küste einschränkt. Wer den Sonnenaufgang von den Gipfelkratern aus erleben möchte, sollte einen sehr frühen Start einplanen und, falls kein erfahrener Wanderer, die Begleitung eines Guides — der Weg im Dunkeln ist für alle, die die Route nicht kennen, nicht empfehlenswert.
 
 Von der Südflanke aus, wo sich Magma 610 befindet, sind viele Ausgangspunkte für diese Ausflüge nur 20–30 Autominuten entfernt — ein weiterer Grund, warum wir unseren Gästen empfehlen, dem Ätna während ihres Aufenthalts mindestens einen ganzen Tag zu widmen, ohne Eile.
-
-*(Endgültiger redaktioneller Inhalt folgt — dieser Text ist ein struktureller Platzhalter.)*

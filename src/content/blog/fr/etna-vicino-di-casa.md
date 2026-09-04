@@ -6,8 +6,6 @@ immagine: "https://images.unsplash.com/photo-1625152932634-4cb0ad4ec475?fm=jpg&q
 tema: "Excursions sur l'Etna"
 ---
 
-*[Texte provisoire — à remplacer par le contenu éditorial définitif.]*
-
 À Pedara, l'Etna n'est pas une destination à atteindre : il est déjà là, visible depuis chaque cour et chaque terrasse de Magma 610. On se réveille avec le profil du volcan sous les yeux, et le soir on le voit se teinter de rose au coucher du soleil. Pour qui séjourne sur le versant sud, le volcan le plus actif d'Europe n'est pas une excursion à planifier des semaines à l'avance : c'est un voisin de palier, à quelques minutes en voiture.
 
 Cet article s'adresse à ceux qui n'ont jamais mis les pieds sur l'Etna et souhaitent organiser une première sortie sans surprise — des points de vue accessibles en voiture aux sentiers plus exigeants pour qui veut grimper vers les cratères sommitaux.
@@ -40,5 +38,3 @@ Pour une première approche, nous conseillons de faire appel à l'un des nombreu
 Les premières heures du matin offrent généralement la vue la plus nette, avant que la brume de l'après-midi typique de l'été sicilien ne réduise la visibilité vers la côte. Qui veut voir le lever du soleil depuis les cratères sommitaux doit prévoir un départ très matinal et, si ce n'est pas un randonneur expérimenté, la compagnie d'un guide — le sentier dans l'obscurité n'est pas recommandé pour qui ne connaît pas le parcours.
 
 Depuis le versant sud, où se trouve Magma 610, de nombreux points de départ pour ces excursions sont à 20-30 minutes en voiture — une raison de plus pour laquelle nous conseillons aux hôtes de consacrer au moins une journée entière à l'Etna pendant leur séjour, sans se presser.
-
-*(Contenu éditorial définitif à fournir — ce texte est un remplissage structurel.)*
