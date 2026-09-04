@@ -8,12 +8,13 @@ export const NAV: Record<Locale, {
   contatti: string;
   faq: string;
   prenota: string;
+  menu: string;
 }> = {
-  it: { home: 'Home', struttura: 'La Struttura', territorio: 'Vivere il Territorio', blog: 'Blog', contatti: 'Contatti', faq: 'FAQ', prenota: 'Prenota' },
-  es: { home: 'Inicio', struttura: 'La Casa', territorio: 'Vivir el Territorio', blog: 'Blog', contatti: 'Contacto', faq: 'FAQ', prenota: 'Reservar' },
-  en: { home: 'Home', struttura: 'The Property', territorio: 'Explore the Area', blog: 'Blog', contatti: 'Contact', faq: 'FAQ', prenota: 'Book' },
-  fr: { home: 'Accueil', struttura: 'La Maison', territorio: 'Vivre le Territoire', blog: 'Blog', contatti: 'Contact', faq: 'FAQ', prenota: 'Réserver' },
-  de: { home: 'Start', struttura: 'Das Haus', territorio: 'Die Region Erleben', blog: 'Blog', contatti: 'Kontakt', faq: 'FAQ', prenota: 'Buchen' },
+  it: { home: 'Home', struttura: 'La Struttura', territorio: 'Vivere il Territorio', blog: 'Blog', contatti: 'Contatti', faq: 'FAQ', prenota: 'Prenota', menu: 'Menu' },
+  es: { home: 'Inicio', struttura: 'La Casa', territorio: 'Vivir el Territorio', blog: 'Blog', contatti: 'Contacto', faq: 'FAQ', prenota: 'Reservar', menu: 'Menú' },
+  en: { home: 'Home', struttura: 'The Property', territorio: 'Explore the Area', blog: 'Blog', contatti: 'Contact', faq: 'FAQ', prenota: 'Book', menu: 'Menu' },
+  fr: { home: 'Accueil', struttura: 'La Maison', territorio: 'Vivre le Territoire', blog: 'Blog', contatti: 'Contact', faq: 'FAQ', prenota: 'Réserver', menu: 'Menu' },
+  de: { home: 'Start', struttura: 'Das Haus', territorio: 'Die Region Erleben', blog: 'Blog', contatti: 'Kontakt', faq: 'FAQ', prenota: 'Buchen', menu: 'Menü' },
 };
 
 export const TERRITORIO_SUBMENU: Record<Locale, {
