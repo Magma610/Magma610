@@ -1,8 +1,18 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const lang = 'it';
+
+const onlyItalianNotice: Record<string, string> = {
+  it: 'Questa pagina è al momento disponibile solo in italiano. Per domande, contattaci direttamente.',
+  en: 'This page is currently only available in Italian. For questions, please contact us directly.',
+  es: 'Esta página está disponible actualmente solo en italiano. Si tienes dudas, contáctanos directamente.',
+  fr: 'Cette page est actuellement disponible uniquement en italien. Pour toute question, contactez-nous directement.',
+  de: 'Diese Seite ist derzeit nur auf Italienisch verfügbar. Bei Fragen kontaktieren Sie uns bitte direkt.',
+};
 ---
 <Layout
-  lang="it"
+  lang={lang}
   currentPath="/privacy-policy"
   title="Privacy Policy"
   description="Informativa sul trattamento dei dati personali di Magma 610 Bed and More, ai sensi del GDPR (Regolamento UE 2016/679)."
@@ -10,6 +20,7 @@ import Layout from '../layouts/Layout.astro';
   <section class="wrap legal">
     <span class="eyebrow">Informativa</span>
     <h1>Privacy Policy</h1>
+    <p class="lang-notice">{onlyItalianNotice[lang] ?? onlyItalianNotice.it}</p>
     <p class="updated">Ultimo aggiornamento: <em>4 settembre 2026</em></p>
 
     <p class="disclaimer">
@@ -96,6 +107,10 @@ import Layout from '../layouts/Layout.astro';
   .legal .eyebrow { color: var(--ginestra); font-weight: 700; font-size: 14px; }
   .legal h1 { font-size: 38px; margin: 10px 0 6px; }
   .legal .updated { color: var(--cenere); font-size: 13.5px; margin-bottom: 20px; }
+  .legal .lang-notice {
+    background: var(--pomice-light); border-radius: 10px; padding: 10px 16px;
+    font-size: 12.5px; color: var(--cenere); margin-bottom: 16px; display: inline-block;
+  }
   .legal .disclaimer {
     background: var(--pomice); border-radius: 10px; padding: 14px 18px;
     font-size: 13.5px; color: var(--cenere); margin-bottom: 32px;

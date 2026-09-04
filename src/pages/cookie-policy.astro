@@ -1,8 +1,18 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const lang = 'it';
+
+const onlyItalianNotice: Record<string, string> = {
+  it: 'Questa pagina è al momento disponibile solo in italiano. Per domande, contattaci direttamente.',
+  en: 'This page is currently only available in Italian. For questions, please contact us directly.',
+  es: 'Esta página está disponible actualmente solo en italiano. Si tienes dudas, contáctanos directamente.',
+  fr: 'Cette page est actuellement disponible uniquement en italien. Pour toute question, contactez-nous directement.',
+  de: 'Diese Seite ist derzeit nur auf Italienisch verfügbar. Bei Fragen kontaktieren Sie uns bitte direkt.',
+};
 ---
 <Layout
-  lang="it"
+  lang={lang}
   currentPath="/cookie-policy"
   title="Cookie Policy"
   description="Informativa sui cookie utilizzati dal sito di Magma 610 Bed and More."
@@ -10,6 +20,7 @@ import Layout from '../layouts/Layout.astro';
   <section class="wrap legal">
     <span class="eyebrow">Informativa</span>
     <h1>Cookie Policy</h1>
+    <p class="lang-notice">{onlyItalianNotice[lang] ?? onlyItalianNotice.it}</p>
     <p class="updated">Ultimo aggiornamento: <em>[data da inserire]</em></p>
 
     <h2>Cosa sono i cookie</h2>
@@ -52,6 +63,10 @@ import Layout from '../layouts/Layout.astro';
   .legal .eyebrow { color: var(--ginestra); font-weight: 700; font-size: 14px; }
   .legal h1 { font-size: 38px; margin: 10px 0 6px; }
   .legal .updated { color: var(--cenere); font-size: 13.5px; margin-bottom: 20px; }
+  .legal .lang-notice {
+    background: var(--pomice-light); border-radius: 10px; padding: 10px 16px;
+    font-size: 12.5px; color: var(--cenere); margin-bottom: 16px; display: inline-block;
+  }
   .legal h2 { font-size: 20px; margin: 30px 0 10px; }
   .legal p { font-size: 15px; line-height: 1.75; color: var(--basalto); }
   table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 14px; }
