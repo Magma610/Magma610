@@ -100,19 +100,58 @@ export const TERRITORIO_CONTENT: Record<TerritorioSlug, Record<Locale, Territori
         },
       ],
     },
-    // TODO: tradurre in ottica SEO prima di andare online, vedi versione IT per il modello
     es: {
-      metaTitle: 'Senderismo en el Etna',
-      metaDescription: 'Excursiones y senderismo en la vertiente sur del Etna: rutas para todos los niveles, desde los bosques de altura hasta los cráteres cumbre.',
-      title: 'Senderismo en el Etna',
-      intro: 'Excursiones y senderismo en la vertiente sur del Etna: rutas para todos los niveles, desde los bosques de altura hasta los cráteres cumbre.',
-      imageAlt: 'Senderismo en el Etna',
+      metaTitle: 'Senderismo en el Etna: Rutas y Senderos — Magma 610',
+      metaDescription: 'Senderismo en el Etna desde la vertiente sur: rutas para todos los niveles entre bosques de altura y cráteres cumbre. Excursiones cerca de Pedara y Magma 610.',
+      title: 'Senderismo en el Etna: los senderos de la vertiente sur',
+      intro: 'Excursiones y senderismo en el Etna desde la vertiente sur: rutas para todos los niveles, desde los bosques de altura hasta los cráteres cumbre.',
+      imageAlt: 'Sendero de senderismo en la vertiente sur del Etna entre bosques de altura',
       body: [
         {
-          heading: 'Senderismo en el Etna',
+          heading: 'Dónde hacer senderismo en el Etna',
           paragraphs: [
-            'El Etna ofrece rutas para todo tipo de excursionista: desde paseos breves entre los bosques de altura hasta ascensos más exigentes hacia los cráteres cumbre. La vertiente sur, donde se encuentra Magma 610, es uno de los puntos de partida más cómodos para organizar una salida.',
-            'Recomendamos salir temprano por la mañana, llevar calzado adecuado y vestir por capas: la temperatura en altura puede ser muy distinta a la del valle, incluso en pleno verano.',
+            'El Etna ofrece rutas de senderismo para cualquier tipo de excursionista: desde paseos breves entre los bosques de altura hasta ascensos más exigentes hacia los cráteres cumbre. La vertiente sur, donde se encuentra Magma 610, es uno de los puntos de partida más cómodos para organizar una excursión, con senderos señalizados que parten a pocos minutos de nuestros apartamentos.',
+            'Entre los destinos más solicitados están los senderos que atraviesan la Pineta Ragabo, los Cráteres Silvestri y, para los excursionistas más entrenados, las rutas que suben hacia los cráteres cumbre, accesibles también con el acompañamiento de guías alpinos autorizados.',
+          ],
+        },
+        {
+          heading: 'Cómo llegar a los senderos desde Pedara',
+          paragraphs: [
+            'Desde Pedara, la vertiente sur del Etna es accesible en pocos minutos en coche: los principales puntos de partida de los senderos —como Piano Vetore, el Rifugio Sapienza y los Cráteres Silvestri— están a entre 20 y 40 minutos de nuestro alojamiento independiente. Es una de las razones por las que Pedara es una base cómoda para quien quiere dedicar varios días al senderismo sin tener que cambiar de alojamiento.',
+          ],
+        },
+        {
+          heading: 'Distancias y nivel de dificultad de los puntos panorámicos',
+          paragraphs: [
+            'Una guía rápida de los destinos de senderismo mencionados arriba, con distancia aproximada desde Pedara, tiempo de recorrido y nivel de dificultad — útil para organizar el día según el tiempo disponible y el nivel de entrenamiento del grupo.',
+          ],
+          table: {
+            headers: ['Destino', 'Distancia desde Pedara', 'Tiempo de recorrido', 'Dificultad'],
+            rows: [
+              ['Pineta Ragabo', '~15 km', '25 min en coche + 1h a pie (circular)', 'Fácil'],
+              ['Cráteres Silvestri', '~20 km', '30 min en coche + 30 min a pie', 'Fácil'],
+              ['Piano Vetore', '~18 km', '25 min en coche', 'Fácil — punto de partida de excursiones'],
+              ['Rifugio Sapienza', '~25 km', '40 min en coche', 'Media — base para las cotas más altas'],
+              ['Cráteres cumbre', '~28 km + ascenso', '40 min en coche + 3-4h a pie, con guía', 'Exigente — requiere guía alpino'],
+            ],
+          },
+        },
+        {
+          heading: 'Cuándo ir y qué llevar',
+          paragraphs: [
+            'Recomendamos salir temprano por la mañana, tanto para evitar las horas más calurosas en verano como para disfrutar de la mejor luz a lo largo del recorrido. Botas de senderismo con buena suela, ropa por capas y suficiente agua son indispensables: la temperatura en altura puede ser muy distinta a la del valle, incluso en pleno verano, y el viento por encima de los 2000 metros puede ser bastante fuerte.',
+            'En los meses más fríos, algunos senderos de alta montaña requieren crampones y equipo específico: comprueba siempre las condiciones meteorológicas y, si no tienes experiencia de montaña en invierno, valora una excursión con guía.',
+          ],
+        },
+        {
+          heading: 'Senderismo en el Etna y estancia en Magma 610',
+          paragraphs: [
+            'Nuestros dos apartamentos independientes en Pedara están pensados también para quienes organizan varios días de senderismo en el Etna: cocina equipada para preparar desayunos y almuerzos para llevar, patio exterior para guardar mochilas y equipo, y la flexibilidad de horarios que necesita quien sale temprano por la mañana para llegar a los senderos en altura.',
+          ],
+          links: [
+            { label: 'Descubre los apartamentos Magma 102 y Magma 104', path: '/la-struttura' },
+            { label: 'En bici por el Etna: las rutas de la vertiente sur', path: '/territorio/bici-etna' },
+            { label: 'Tour por las bodegas del Etna', path: '/territorio/cantine-etna' },
           ],
         },
       ],
@@ -205,19 +244,37 @@ export const TERRITORIO_CONTENT: Record<TerritorioSlug, Record<Locale, Territori
         },
       ],
     },
-    // TODO: tradurre in ottica SEO prima di andare online, vedi versione IT per il modello
     es: {
-      metaTitle: 'Bodegas del Etna',
-      metaDescription: 'Tours por las bodegas del Etna: viñedos sobre terreno volcánico y catas de vino a pocos minutos de Pedara.',
-      title: 'Bodegas del Etna',
-      intro: 'Tours por las bodegas del Etna: viñedos sobre terreno volcánico y catas de vino a pocos minutos de Pedara.',
-      imageAlt: 'Bodegas del Etna',
+      metaTitle: 'Tours por Bodegas del Etna: Catas — Magma 610, Pedara',
+      metaDescription: 'Tours por las bodegas del Etna cerca de Pedara: catas de vino en terreno volcánico, viñedos panorámicos y visitas guiadas todo el año entre Trecastagni y Milo.',
+      title: 'Tours por las bodegas del Etna: dónde catar vino volcánico',
+      intro: 'Tours por las bodegas del Etna: viñedos en terreno volcánico y catas de vino a pocos minutos de Pedara.',
+      imageAlt: 'Viñedos en terreno volcánico durante un tour por las bodegas del Etna',
       body: [
         {
-          heading: 'Bodegas del Etna',
+          heading: 'Las bodegas del Etna: un territorio único',
           paragraphs: [
-            'La zona alrededor del Etna es una de las áreas vinícolas más interesantes de Italia: el terreno volcánico da a los vinos locales un carácter único. Muchas bodegas históricas organizan visitas y catas durante todo el año, a menudo con vistas al volcán.',
-            'Se recomienda reservar con antelación, sobre todo en los meses de vendimia (septiembre-octubre), cuando la demanda es más alta.',
+            'La zona alrededor del Etna es una de las áreas vitivinícolas más interesantes de Italia: el terreno volcánico, rico en minerales, da a los vinos locales —sobre todo los tintos y blancos elaborados con uvas Nerello Mascalese y Carricante— un carácter único, reconocido ya a nivel internacional.',
+            'Muchas bodegas históricas, algunas con viñedos centenarios en vaso bajo, organizan tours por las bodegas del Etna con visita a la finca, explicación del método de cultivo en terrazas volcánicas y cata guiada, a menudo con vistas directas al volcán.',
+          ],
+        },
+        {
+          heading: 'Las bodegas más cercanas a Pedara',
+          paragraphs: [
+            'Pedara se encuentra a pocos minutos de algunas de las zonas vitivinícolas más conocidas de la vertiente sur y este del Etna, entre Trecastagni, Milo y Zafferana Etnea. Es posible organizar un tour de medio día visitando dos o tres bodegas, o dedicar un día entero a un recorrido más completo entre catas y almuerzos en el viñedo.',
+          ],
+        },
+        {
+          heading: 'Cuándo reservar la cata',
+          paragraphs: [
+            'Se recomienda reservar con antelación, sobre todo en los meses de la vendimia (septiembre-octubre), cuando la demanda es más alta y muchas bodegas organizan eventos especiales relacionados con la recogida de la uva. En primavera y verano, en cambio, es más fácil encontrar disponibilidad incluso con poca antelación.',
+            'Muchos tours por las bodegas del Etna incluyen también un paseo entre los viñedos, con explicaciones sobre el cultivo en vaso bajo en terreno volcánico y sobre las distintas contradas volcánicas —cada una con un microclima y un carácter de vino ligeramente distinto, un detalle que convierte cada cata en una experiencia diferente.',
+          ],
+        },
+        {
+          heading: 'El vino del Etna y la estancia en Magma 610',
+          paragraphs: [
+            'Después de un día de catas, nuestros apartamentos independientes en Pedara ofrecen el espacio adecuado para relajarse: un patio exterior equipado donde disfrutar de la tarde, y la comodidad de llegar en pocos minutos en coche al centro del pueblo para cenar, sin tener que afrontar largos desplazamientos tras un día entre bodegas.',
           ],
         },
       ],
@@ -310,19 +367,37 @@ export const TERRITORIO_CONTENT: Record<TerritorioSlug, Record<Locale, Territori
         },
       ],
     },
-    // TODO: tradurre in ottica SEO prima di andare online, vedi versione IT per il modello
     es: {
-      metaTitle: 'Gargantas del Alcantara',
-      metaDescription: 'Las Gargantas del Alcantara desde Pedara: un cañón de roca basáltica excavado por el río Alcantara, a unos 40 minutos en coche.',
-      title: 'Gargantas del Alcantara',
+      metaTitle: 'Gargantas del Alcantara: Guía Completa — Magma 610, Pedara',
+      metaDescription: 'Las Gargantas del Alcantara desde Pedara: excursión al cañón de roca basáltica excavado por el río, a 40 minutos en coche. Consejos prácticos para la visita.',
+      title: 'Las Gargantas del Alcantara: excursión al cañón basáltico',
       intro: 'Las Gargantas del Alcantara desde Pedara: un cañón de roca basáltica excavado por el río Alcantara, a unos 40 minutos en coche.',
-      imageAlt: 'Gargantas del Alcantara',
+      imageAlt: 'Paredes de roca basáltica en las Gargantas del Alcantara cerca de Pedara',
       body: [
         {
-          heading: 'Gargantas del Alcantara',
+          heading: 'Qué son las Gargantas del Alcantara',
           paragraphs: [
-            'Las Gargantas del Alcantara son un cañón natural formado por el enfriamiento de la lava en contacto con el río, que a lo largo de los siglos ha excavado paredes de roca basáltica de hasta 50 metros de altura. Es uno de los destinos naturales más visitados del este de Sicilia.',
-            'Se encuentran a unos 40 minutos en coche desde Pedara. Recomendamos calzado con buen agarre y, si se quiere caminar por el agua, una muda: el agua del río se mantiene fría incluso en verano.',
+            'Las Gargantas del Alcantara son un cañón natural formado por el enfriamiento de la lava en contacto con el río Alcantara, que a lo largo de los siglos ha excavado paredes de roca basáltica de hasta 50 metros de altura. Las célebres columnas prismáticas, creadas por el lento enfriamiento de la colada lávica, son uno de los ejemplos más espectaculares de gargantas basálticas de Sicilia y de Europa.',
+            'Es uno de los destinos naturalistas más visitados del este de Sicilia, apto tanto para quien busca un paseo panorámico por las pasarelas habilitadas como para quien quiere vivir una excursión más aventurera caminando por el lecho del río.',
+          ],
+        },
+        {
+          heading: 'Cómo llegar desde Pedara',
+          paragraphs: [
+            'Las Gargantas del Alcantara se encuentran a unos 40 minutos en coche desde Pedara, siguiendo un recorrido que atraviesa parte de la vertiente noreste del Etna. Es una excursión fácil de organizar en medio día, incluso combinándola con una parada en Taormina o en los pueblos cercanos el mismo día.',
+          ],
+        },
+        {
+          heading: 'Consejos para la excursión',
+          paragraphs: [
+            'Recomendamos calzado con buen agarre y, si se quiere caminar por el agua, una muda de ropa: el agua del río se mantiene fría incluso en verano, debido a su origen subterráneo. En los meses más calurosos es posible alquilar botas de goma directamente en la entrada del parque para recorrer el cauce con seguridad.',
+            'Además del recorrido principal con ascensores y pasarelas, quien disponga de más tiempo puede remontar el curso del río a pie, entre las gargantas más estrechas, para una versión más salvaje y menos concurrida de la excursión a las Gargantas del Alcantara, indicada para quien ya está acostumbrado a caminar por terrenos irregulares.',
+          ],
+        },
+        {
+          heading: 'Dónde alojarse para visitar las Gargantas del Alcantara',
+          paragraphs: [
+            'Alojarse en Pedara, en uno de nuestros apartamentos independientes, permite organizar cómodamente la excursión a las Gargantas del Alcantara como parte de un itinerario más amplio, aprovechando la posición central respecto a los principales puntos de interés de la vertiente sur y este del Etna.',
           ],
         },
       ],
@@ -415,19 +490,37 @@ export const TERRITORIO_CONTENT: Record<TerritorioSlug, Record<Locale, Territori
         },
       ],
     },
-    // TODO: tradurre in ottica SEO prima di andare online, vedi versione IT per il modello
     es: {
-      metaTitle: 'Taormina',
-      metaDescription: 'Taormina desde Pedara: la elegancia de la costa jónica, entre el Teatro Griego y las calas de Isola Bella, a unos 30 minutos en coche.',
-      title: 'Taormina',
+      metaTitle: 'Taormina desde Pedara: Qué Ver y Cómo Llegar — Magma 610',
+      metaDescription: 'Taormina desde Pedara en media hora en coche: qué ver entre el Teatro Griego e Isola Bella, cómo llegar desde el Etna y cuándo ir para organizar la visita.',
+      title: 'Taormina: qué ver y cómo llegar desde el Etna',
       intro: 'Taormina desde Pedara: la elegancia de la costa jónica, entre el Teatro Griego y las calas de Isola Bella, a unos 30 minutos en coche.',
-      imageAlt: 'Taormina',
+      imageAlt: 'Vista de Taormina y de la costa jónica desde el Teatro Griego',
       body: [
         {
-          heading: 'Taormina',
+          heading: 'Qué ver en Taormina',
           paragraphs: [
-            'Taormina es uno de los destinos más célebres de Sicilia: el Teatro Griego, el casco antiguo frente al mar y las calas de Isola Bella la convierten en una parada casi obligada para quien se aloja en la vertiente sur del Etna.',
-            'Se llega en unos 30 minutos en coche desde Pedara. En los meses de verano recomendamos llegar temprano para encontrar aparcamiento con más facilidad y evitar el calor de las horas centrales.',
+            'Taormina es uno de los destinos más célebres de Sicilia: el Teatro Griego, con sus vistas impresionantes sobre el Etna y el mar, es probablemente el monumento más fotografiado de la isla. El casco antiguo, con Corso Umberto, Piazza IX Aprile y sus vistas sobre el golfo, se recorre a pie en pocas horas, entre tiendas, terrazas panorámicas y palacios históricos.',
+            'A poca distancia, las calas de Isola Bella —una pequeña isla unida a tierra firme por una lengua de arena— son una de las imágenes símbolo de la costa jónica siciliana y una parada casi obligada para quien visita Taormina.',
+          ],
+        },
+        {
+          heading: 'Cómo llegar a Taormina desde el Etna',
+          paragraphs: [
+            'Desde Pedara, en la vertiente sur del Etna, Taormina se alcanza en unos 30 minutos en coche, con un recorrido que desciende hacia la costa jónica atravesando algunos de los paisajes más sugestivos de la zona. También es posible organizar la visita utilizando el transporte público, aunque el coche sigue siendo la solución más cómoda para gestionar horarios y paradas durante el trayecto.',
+          ],
+        },
+        {
+          heading: 'Cuándo visitar Taormina',
+          paragraphs: [
+            'En los meses de verano recomendamos llegar temprano para encontrar aparcamiento con más facilidad y evitar el calor de las horas centrales, sobre todo si también se quiere visitar Isola Bella. En primavera y otoño, Taormina ofrece un clima más templado y menos aglomeración, ideal para disfrutar con calma del casco antiguo y del Teatro Griego.',
+            'Si el plan del día incluye también una parada en la playa, las playas de Mazzarò e Isola Bella son accesibles con el teleférico directamente desde el centro de Taormina, una alternativa cómoda para quien no quiere buscar aparcamiento dos veces en el mismo día.',
+          ],
+        },
+        {
+          heading: 'Taormina y la estancia en Magma 610',
+          paragraphs: [
+            'Elegir Magma 610 como base significa poder dedicar un día entero a Taormina sin renunciar a la tranquilidad de un alojamiento independiente lejos del tráfico y de los precios del centro costero, manteniendo un fácil acceso tanto al mar como a las excursiones por el Etna.',
           ],
         },
       ],
@@ -520,19 +613,37 @@ export const TERRITORIO_CONTENT: Record<TerritorioSlug, Record<Locale, Territori
         },
       ],
     },
-    // TODO: tradurre in ottica SEO prima di andare online, vedi versione IT per il modello
     es: {
-      metaTitle: 'Catania histórica',
-      metaDescription: 'El centro histórico de Catania: el barroco siciliano, los mercados históricos y el puerto, a pocos minutos de Magma 610.',
-      title: 'Catania histórica',
+      metaTitle: 'Centro Histórico de Catania: Qué Ver — Magma 610, Pedara',
+      metaDescription: 'Qué ver en el centro histórico de Catania: Piazza del Duomo, la Pescheria y la arquitectura barroca, a solo 20 minutos en coche de Pedara y Magma 610.',
+      title: 'Catania: el centro histórico barroco a dos pasos de Magma 610',
       intro: 'El centro histórico de Catania: el barroco siciliano, los mercados históricos y el puerto, a pocos minutos de Magma 610.',
-      imageAlt: 'Catania histórica',
+      imageAlt: 'Piazza del Duomo en el centro histórico barroco de Catania',
       body: [
         {
-          heading: 'Catania histórica',
+          heading: 'Qué ver en el centro histórico de Catania',
           paragraphs: [
-            'Catania, Patrimonio de la Humanidad por su centro barroco, es la ciudad más cercana a Magma 610: la plaza del Duomo, la vía Etnea y el histórico mercado de la Pescheria cuentan la historia de una ciudad vibrante, construida —literalmente— con la piedra volcánica del Etna.',
-            'El centro se alcanza en unos 20-25 minutos en coche desde Pedara. Recomendamos visitarlo a primera hora de la mañana para vivir el mercado de la Pescheria en pleno funcionamiento.',
+            'Catania, Patrimonio de la Humanidad por su centro barroco, es la ciudad más cercana a Magma 610: la Piazza del Duomo con la fuente del Elefante, la vía Etnea que atraviesa el corazón de la ciudad, y el histórico mercado de la Pescheria cuentan la historia de una ciudad vibrante, construida —literalmente— con la piedra volcánica del Etna.',
+            'Entre las paradas que no hay que perderse están también el Teatro Massimo Bellini, los restos del anfiteatro romano escondido entre los edificios del centro, y el Castello Ursino, que hoy alberga el museo cívico frente a la plaza Federico di Svevia.',
+          ],
+        },
+        {
+          heading: 'Catania barroca: arquitectura e historia',
+          paragraphs: [
+            'Tras el devastador terremoto de 1693, Catania fue reconstruida en estilo tardobarroco, con la misma piedra volcánica negra que aún hoy caracteriza las fachadas del centro histórico, en contraste con la piedra caliza blanca usada para decoraciones y detalles. Este estilo, compartido con otras ciudades del Val di Noto, está hoy reconocido como Patrimonio de la Humanidad por la UNESCO.',
+            'Paseando por el centro se reconocen fácilmente los elementos típicos del barroco catanés: balcones con ménsulas esculpidas, portales monumentales y la característica combinación de negro volcánico y blanco calcáreo que da a la ciudad un carácter arquitectónico inmediatamente reconocible, distinto de cualquier otro centro histórico siciliano.',
+          ],
+        },
+        {
+          heading: 'Cómo llegar y cuándo visitar',
+          paragraphs: [
+            'El centro de Catania se alcanza en unos 20-25 minutos en coche desde Pedara. Recomendamos una visita a primera hora de la mañana, tanto para vivir el mercado de la Pescheria en pleno funcionamiento como para disfrutar de las principales plazas del centro histórico antes de la llegada de los grupos turísticos.',
+          ],
+        },
+        {
+          heading: 'Catania y la estancia en Magma 610',
+          paragraphs: [
+            'La cercanía de Magma 610 a Catania permite alternar días en la ciudad con excursiones por el Etna o escapadas a la costa, sin tener que elegir entre mar, volcán y cultura: en unos veinte minutos se pasa de la tranquilidad de Pedara al centro barroco de la ciudad.',
           ],
         },
       ],
@@ -625,20 +736,37 @@ export const TERRITORIO_CONTENT: Record<TerritorioSlug, Record<Locale, Territori
         },
       ],
     },
-    // TODO: tradurre in ottica SEO prima di andare online, vedi versione IT per il modello
     es: {
-      metaTitle: 'En bici por el Etna',
-      metaDescription: 'Rutas en bicicleta en la vertiente sur del Etna, entre viñedos y bosques de altura — cicloturismo para todos los niveles, a un paso de Pedara.',
-      title: 'En bici por el Etna',
+      metaTitle: 'Rutas en Bici por el Etna, Vertiente Sur — Magma 610',
+      metaDescription: 'Rutas en bicicleta en la vertiente sur del Etna, entre viñedos y bosques de altura: cicloturismo para todos los niveles y bike tours, a pocos minutos de Pedara.',
+      title: 'En bici por el Etna: las rutas de la vertiente sur',
       intro: 'Rutas en bicicleta en la vertiente sur del Etna, entre viñedos y bosques de altura — cicloturismo para todos los niveles, a un paso de Pedara.',
-      imageAlt: 'En bici por el Etna',
+      imageAlt: 'Ciclista en una ruta en bici de la vertiente sur del Etna entre los viñedos',
       body: [
         {
-          heading: 'En bici por el Etna',
+          heading: 'Las rutas en bici de la vertiente sur del Etna',
           paragraphs: [
-            'La vertiente sur del Etna ofrece rutas en bicicleta para todos los niveles: desde paseos tranquilos entre viñedos y muretes de piedra seca hasta trazados más exigentes que suben hacia los bosques de altura. Es una de las zonas más apreciadas por los aficionados al cicloturismo en Sicilia, gracias a las vistas sobre el volcán y la costa jónica.',
-            'Para quienes prefieren evitar los desniveles más duros, varios puntos de alquiler de la zona ofrecen e-bikes, una solución cómoda para disfrutar del paisaje sin renunciar a alguna subida exigente.',
-            'Recomendamos salir en las horas más frescas del día, sobre todo en verano, y comprobar siempre las condiciones meteorológicas en altura antes de afrontar las rutas más largas.',
+            'La vertiente sur del Etna ofrece rutas en bicicleta para todos los niveles: desde pedaladas tranquilas entre viñedos y muretes de piedra seca hasta trazados más exigentes que suben hacia los bosques de altura, hasta los Cráteres Silvestri. Es una de las zonas más apreciadas por los aficionados al cicloturismo en Sicilia, gracias a las vistas sobre el volcán y la costa jónica que se abren a lo largo de la subida.',
+            'Entre las rutas más conocidas están las que conectan los pueblos etneos —Pedara, Trecastagni, Nicolosi— a lo largo de los antiguos caminos de herradura y las carreteras secundarias que atraviesan los viñedos, ideales para quien busca un bike tour por el Etna menos exigente pero igualmente rico en paisaje.',
+          ],
+        },
+        {
+          heading: 'Rutas para todos los niveles y e-bikes',
+          paragraphs: [
+            'Para quienes no quieren afrontar los desniveles mayores, varios puntos de alquiler de la zona ofrecen e-bikes, una solución cómoda para disfrutar del paisaje sin renunciar a alguna subida exigente. Es posible alquilar tanto mountain bikes como gravel, según el tipo de ruta elegida.',
+          ],
+        },
+        {
+          heading: 'Cuándo ir y qué saber',
+          paragraphs: [
+            'Recomendamos salir en las horas más frescas del día, sobre todo en verano, y comprobar siempre las condiciones meteorológicas en altura antes de afrontar las rutas más largas: por encima de los 1500 metros las temperaturas pueden bajar rápidamente incluso con clima estival en el valle.',
+            'Muchas de las rutas en bici por el Etna atraviesan caminos de tierra y senderos compartidos con excursionistas a pie: un casco y luces bien visibles, incluso de día, son una precaución útil en algunos tramos menos frecuentados.',
+          ],
+        },
+        {
+          heading: 'Cicloturismo en el Etna y estancia en Magma 610',
+          paragraphs: [
+            'Nuestros apartamentos en Pedara son un buen punto de partida para quienes organizan algunos días de cicloturismo por el Etna: espacio exterior para guardar las bicicletas, posición cómoda respecto a los principales puntos de partida de las rutas, y la flexibilidad de un alojamiento independiente para quien tiene horarios de entrenamiento particulares.',
           ],
         },
       ],
@@ -735,19 +863,38 @@ export const TERRITORIO_CONTENT: Record<TerritorioSlug, Record<Locale, Territori
         },
       ],
     },
-    // TODO: tradurre in ottica SEO prima di andare online, vedi versione IT per il modello
     es: {
-      metaTitle: 'Cerca del Centro Cuore Morgagni',
-      metaDescription: 'Alojamiento cómodo y tranquilo a pocos minutos del Centro Cuore Morgagni de Pedara — ideal para una visita médica o para estar cerca de un familiar.',
-      title: 'Cerca del Centro Cuore Morgagni',
+      metaTitle: 'Alojamiento cerca del Centro Cuore Morgagni — Magma 610',
+      metaDescription: 'Alojamiento cerca del Centro Cuore Morgagni de Pedara: 5 minutos en coche, 15 a pie. Dos apartamentos independientes para estancias breves o prolongadas.',
+      title: 'Dónde dormir cerca del Centro Cuore Morgagni de Pedara',
       intro: 'Alojamiento cómodo y tranquilo a pocos minutos del Centro Cuore Morgagni de Pedara — ideal para una visita médica o para estar cerca de un familiar.',
-      imageAlt: 'Cerca del Centro Cuore Morgagni',
+      imageAlt: 'El Centro Cuore Morgagni de Pedara',
       body: [
         {
-          heading: 'Cerca del Centro Cuore Morgagni',
+          heading: 'Distancia al Centro Cuore Morgagni',
           paragraphs: [
-            'Magma 610 se encuentra a solo 5 minutos en coche y a unos 15 minutos a pie del Centro Cuore Morgagni. Es una solución práctica para quienes deben organizar una visita médica, un ingreso o una estancia hospitalaria y buscan un alojamiento cercano, sin tener que gestionar desplazamientos en una ciudad desconocida.',
-            'Los dos apartamentos, independientes y equipados con todas las comodidades, permiten descansar con tranquilidad entre una cita y otra, con la flexibilidad de una estancia breve o prolongada según las necesidades de cada uno.',
+            'Magma 610 se encuentra a solo 5 minutos en coche y a unos 15 minutos a pie del Centro Cuore Morgagni. Es una solución práctica para quien debe organizar una visita médica, un ingreso o una estancia hospitalaria y busca un alojamiento cerca del Centro Cuore Morgagni, sin tener que gestionar los desplazamientos en una ciudad desconocida.',
+          ],
+        },
+        {
+          heading: 'Dos apartamentos independientes',
+          paragraphs: [
+            'Los dos apartamentos, Magma 102 y Magma 104, son independientes y cuentan con todas las comodidades: cocina equipada, ropa de cama incluida y conexión Wi-Fi, para poder organizar el día —entre una cita y otra— sin preocupaciones adicionales.',
+            'Tener una cocina propia suele ser un detalle importante para quien se queda varios días cerca del Centro Cuore Morgagni: significa poder preparar una comida ligera antes de una visita, o simplemente no tener que comer siempre fuera durante una estancia hospitalaria larga de un familiar.',
+          ],
+        },
+        {
+          heading: 'Flexibilidad para estancias breves o prolongadas',
+          paragraphs: [
+            'Entendemos que quien busca un alojamiento cerca del Centro Cuore Morgagni suele tener necesidades distintas a las de una estancia turística clásica: por eso ofrecemos la flexibilidad de una estancia breve, incluso de una sola noche, o prolongada, según los tiempos de las visitas o del ingreso.',
+            'El check-in y el check-out pueden organizarse con horarios flexibles cuando las circunstancias lo requieren: a menudo las visitas médicas o los horarios de un ingreso no coinciden con los horarios habituales de llegada y salida, y procuramos atender estas necesidades siempre que sea posible.',
+          ],
+        },
+        {
+          heading: 'Comodidades prácticas para quien llega de fuera',
+          paragraphs: [
+            'Aparcamiento cómodo, tranquilidad y la posibilidad de llegar al Centro Cuore Morgagni también a pie hacen de Magma 610 una base práctica para quien llega de fuera de la ciudad y no conoce la zona. En caso de necesidad, estamos siempre disponibles para indicaciones sobre farmacias, supermercados u otros servicios cercanos.',
+            'Pedara es un pueblo tranquilo, sin el tráfico ni la confusión de una ciudad más grande: un aspecto que muchos de nuestros huéspedes, sobre todo quienes ya están lidiando con el estrés de una visita médica o un ingreso, valoran especialmente frente a un alojamiento en el centro de la ciudad.',
           ],
         },
       ],
