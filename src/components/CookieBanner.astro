@@ -88,20 +88,28 @@ const t = COOKIE_BANNER[lang];
     gap: 10px;
     flex-shrink: 0;
   }
-  .cookie-actions .btn-outline {
-    background: var(--ginestra);
+  .cookie-actions button {
+    min-width: 220px;
+    padding: 13px 26px;
+    border-radius: var(--r-pill);
+    font-weight: 700;
     border: none;
-    color: var(--bianco);
+    text-align: center;
     white-space: nowrap;
   }
+  .cookie-actions .btn-outline {
+    background: var(--bianco);
+    color: var(--lava);
+    font-size: 12px;
+  }
   .cookie-actions .btn-outline:hover {
-    background: var(--ginestra);
-    filter: brightness(0.9);
-    color: var(--bianco);
+    background: var(--bianco);
+    filter: brightness(0.92);
+    color: var(--lava);
   }
   @media (max-width: 700px) {
     .cookie-inner { flex-direction: column; align-items: stretch; }
     .cookie-actions { justify-content: stretch; }
-    .cookie-actions button { flex: 1; }
+    .cookie-actions button { flex: 1; min-width: 0; white-space: normal; }
   }
 </style>
