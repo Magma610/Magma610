@@ -1,6 +1,6 @@
 ---
 titolo: "Der Ätna, Ihr direkter Nachbar"
-data: 2026-09-14
+data: 2026-09-05
 estratto: "Was man sehen sollte und wie man sich zwischen den Gipfelkratern und den Wegen der Südflanke bewegt."
 immagine: "https://images.unsplash.com/photo-1625152932634-4cb0ad4ec475?fm=jpg&q=80&w=1200&auto=format&fit=crop"
 tema: "Ätna-Ausflüge"

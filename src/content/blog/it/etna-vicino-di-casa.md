@@ -1,6 +1,6 @@
 ---
 titolo: "L'Etna, il vostro vicino di casa"
-data: 2026-09-14
+data: 2026-09-05
 estratto: "Cosa vedere e come muoversi tra i crateri sommitali e i sentieri del versante sud."
 immagine: "https://images.unsplash.com/photo-1625152932634-4cb0ad4ec475?fm=jpg&q=80&w=1200&auto=format&fit=crop"
 tema: "Escursioni sull'Etna"

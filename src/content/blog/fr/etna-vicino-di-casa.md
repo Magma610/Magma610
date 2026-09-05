@@ -1,6 +1,6 @@
 ---
 titolo: "L'Etna, votre voisin de palier"
-data: 2026-09-14
+data: 2026-09-05
 estratto: "Que voir et comment se déplacer entre les cratères sommitaux et les sentiers du versant sud."
 immagine: "https://images.unsplash.com/photo-1625152932634-4cb0ad4ec475?fm=jpg&q=80&w=1200&auto=format&fit=crop"
 tema: "Excursions sur l'Etna"

@@ -1,6 +1,6 @@
 ---
 titolo: "El Etna, tu vecino de al lado"
-data: 2026-09-14
+data: 2026-09-05
 estratto: "Qué ver y cómo moverse entre los cráteres cumbre y los senderos de la vertiente sur."
 immagine: "https://images.unsplash.com/photo-1625152932634-4cb0ad4ec475?fm=jpg&q=80&w=1200&auto=format&fit=crop"
 tema: "Excursiones al Etna"

@@ -1,6 +1,6 @@
 ---
 titolo: "Mount Etna, your next-door neighbour"
-data: 2026-09-14
+data: 2026-09-05
 estratto: "What to see and how to get around between the summit craters and the trails of the south side."
 immagine: "https://images.unsplash.com/photo-1625152932634-4cb0ad4ec475?fm=jpg&q=80&w=1200&auto=format&fit=crop"
 tema: "Etna excursions"
